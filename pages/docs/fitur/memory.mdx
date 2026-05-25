@@ -1,0 +1,75 @@
+---
+title: Memory & Konteks
+description: Cara kerja memory persisten di BikinBot — bot yang selalu ingat kamu
+---
+
+import { Callout } from 'nextra/components'
+
+# Memory & Konteks
+
+Bot BikinBot punya **memory persisten** yang membuatnya ingat konteks penting dari semua percakapan — nama kamu, preferensi, keputusan bisnis, project yang sedang dikerjakan, dan banyak lagi.
+
+## Cara kerja memory
+
+Memory disimpan di file `MEMORY.md` di workspace bot. Bot membaca file ini di awal setiap sesi dan menyimpan informasi penting secara otomatis saat percakapan berlangsung.
+
+```
+Kamu → Chat dengan bot
+Bot → Simpan info penting ke MEMORY.md
+Sesi baru dimulai → Bot baca MEMORY.md → Ingat konteks
+```
+
+## Apa yang diingat bot?
+
+Bot akan otomatis menyimpan:
+- **Nama dan preferensi** — "Panggil saya Budi, saya lebih suka jawaban singkat"
+- **Konteks bisnis** — "Saya punya toko online yang jual produk fashion"
+- **Keputusan penting** — "Kita sepakat pilih strategi B untuk launching"
+- **Informasi teknis** — "Server staging ada di IP 192.168.1.1"
+- **Credential tersimpan** — "BINANCE_API_KEY sudah disimpan"
+
+## Memory Tools
+
+Bot punya tools khusus untuk mengelola memory:
+
+| Tool | Fungsi | Contoh perintah |
+|------|--------|-----------------|
+| `memory_store` | Simpan fakta penting | "Simpan: nama client = PT Maju Jaya" |
+| `memory_recall` | Cari info dari memory | "Ingat, apa nama client kita?" |
+| `memory_search` | Cari dengan keyword | Otomatis dipanggil bot |
+| `memory_forget` | Hapus entry yang outdated | "Hapus info tentang client lama" |
+
+<Callout type="info">
+  **Bot juga proaktif** — ketika kamu menyebutkan sesuatu penting, bot akan menyimpannya ke memory tanpa kamu harus minta.
+</Callout>
+
+## Memory vs Konteks Sesi
+
+| Aspek | Memory (MEMORY.md) | Konteks Sesi |
+|-------|-------------------|--------------|
+| Bertahan setelah `/new` | ✅ Ya | ❌ Tidak |
+| Bertahan setelah restart | ✅ Ya | ❌ Tidak |
+| Diisi oleh | Bot otomatis | Riwayat chat |
+| Kapasitas | Tidak terbatas | Terbatas oleh context window model |
+
+## Session Memory
+
+Setiap kali kamu reset sesi dengan `/new`, bot otomatis menyimpan **ringkasan 15 pesan terakhir** ke file memory sebelum memulai sesi baru. Jadi tidak ada informasi penting yang hilang.
+
+## Reset Memory
+
+Untuk menghapus semua memory bot:
+
+1. Buka menu **Settings → Reset AI Agent**
+2. Atau minta langsung via chat: "hapus semua memory kamu"
+
+<Callout type="warning">
+  **Reset Memory bersifat permanen.** Backup informasi penting sebelum melakukan reset.
+</Callout>
+
+## Tips penggunaan memory
+
+- **Perkenalkan diri** di awal percakapan pertama — bot akan menyimpan preferensimu
+- **Koreksi langsung** jika bot salah ingat sesuatu
+- **Minta ringkasan** apa yang bot ingat: "apa saja yang kamu ingat tentang saya?"
+- Gunakan `/new` secara berkala untuk **reset konteks sesi** (bukan memory permanen)

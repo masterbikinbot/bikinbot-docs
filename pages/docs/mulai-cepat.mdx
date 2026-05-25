@@ -1,0 +1,90 @@
+---
+title: Quick Start — Bot AI Siap dalam 5 Menit
+description: Panduan langkah demi langkah untuk membuat AI Agent Telegram pertamamu di BikinBot.ai
+---
+
+import { Callout, Steps } from 'nextra/components'
+
+# Quick Start
+
+Buat AI Agent Telegram kamu dalam **5 menit**. Tidak perlu coding, tidak perlu server sendiri — semuanya sudah diurus BikinBot.
+
+<Callout type="info">
+  **Yang kamu butuhkan:** Akun Telegram, kartu kredit/debit (untuk top-up kredit AI), dan 5 menit waktu luang.
+</Callout>
+
+## Langkah-langkah
+
+<Steps>
+
+### Daftar & Login
+
+Buka [bikinbot.ai](https://bikinbot.ai) dan daftar dengan email. Kamu juga bisa login via Google.
+
+### Buat Bot Telegram di @BotFather
+
+1. Buka Telegram, cari **@BotFather**
+2. Kirim `/newbot`
+3. Beri nama bot (contoh: `AsistenKu`)
+4. Beri username bot — wajib diakhiri `bot` (contoh: `asistenkubot`)
+5. BotFather akan kirim **token** seperti: `1234567890:ABCDefgh...`
+6. Simpan token ini, kamu akan butuhkan di langkah berikutnya
+
+### Buat AI Agent di BikinBot
+
+1. Login ke [bikinbot.ai](https://bikinbot.ai)
+2. Klik tombol **"Buat Bot"**
+3. Tempel token dari BotFather
+4. Isi nama bot dan persona (bisa diubah nanti)
+5. Klik **"Buat Bot"**
+6. Tunggu 1–2 menit saat proses setup berjalan
+
+### Top-up Kredit AI
+
+Kredit AI digunakan untuk setiap percakapan dengan model AI.
+
+1. Buka menu **Billing**
+2. Klik **"Top Up"**
+3. Pilih nominal (minimum Rp 10.000)
+4. Bayar via QRIS atau Virtual Account
+5. Kredit masuk dalam 1–2 menit
+
+> 💡 **Estimasi biaya:** Kredit Rp 50.000 cukup untuk ~500–2000 pesan tergantung model yang dipilih.
+
+### Chat dengan Bot!
+
+Buka bot kamu di Telegram dan kirim pesan pertama.
+
+```
+/start
+```
+
+Bot akan membalas dengan pesan welcome. Selamat, AI Agent kamu sudah aktif! 🎉
+
+</Steps>
+
+## Apa yang bisa dilakukan bot kamu?
+
+Setelah setup, bot kamu langsung bisa:
+
+| Kemampuan | Contoh |
+|-----------|--------|
+| **Tanya jawab** | "Jelaskan apa itu inflasi" |
+| **Analisis dokumen** | Kirim file PDF → "Ringkaskan dokumen ini" |
+| **Analisis gambar** | Kirim foto → "Apa yang ada di gambar ini?" |
+| **Coding** | "Buatkan fungsi Python untuk sorting" |
+| **Web search** | "Cari harga saham BBCA hari ini" |
+| **Terjemahan** | "Terjemahkan ke Inggris: ..." |
+
+## Langkah selanjutnya
+
+Setelah bot aktif, kamu bisa:
+
+- [Kustomisasi persona bot](/docs/bot/persona) — ubah karakter dan kepribadian
+- [Pilih model AI](/docs/bot/model) — 36+ model dari GPT-5 hingga yang gratis
+- [Set jadwal otomatis](/docs/fitur/cron) — reminder harian, laporan, dll
+- [Upload knowledge base](/docs/fitur/knowledge) — agar bot paham bisnis/produkmu
+
+<Callout type="warning">
+  **Bot tidak merespon?** Pastikan kredit kamu tidak habis. Cek di menu **Billing**. Kalau kredit cukup, coba ketik `/status` di bot untuk melihat kondisinya.
+</Callout>

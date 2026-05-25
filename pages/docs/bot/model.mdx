@@ -1,0 +1,135 @@
+---
+title: Pilih Model AI
+description: Panduan memilih model AI yang tepat untuk kebutuhan bot kamu di BikinBot
+---
+
+import { Callout, Tabs } from 'nextra/components'
+
+# Pilih Model AI
+
+BikinBot mendukung **36+ model AI** dari berbagai provider. Setiap model punya karakteristik berbeda — kecepatan, biaya, kemampuan, dan spesialisasi.
+
+## Cara ganti model
+
+### Via Dashboard
+
+1. Buka **Settings → Pilihan Model**
+2. Pilih model dari dropdown
+3. Atau ketik ID model custom (format: `openrouter/<vendor>/<model>`)
+4. Simpan — bot restart otomatis ~15 detik
+
+### Via Telegram (sementara)
+
+Ketik `/model` di bot untuk membuka picker model. Pilihan ini **hanya berlaku untuk sesi aktif** — tidak permanen.
+
+Untuk ganti model secara permanen, gunakan perintah:
+```
+ganti model ke deepseek/deepseek-v4-flash
+```
+Bot akan konfirmasi dan menjalankan pergantian permanen.
+
+<Callout type="info">
+  Ketik `/status` untuk melihat model yang sedang aktif digunakan bot kamu.
+</Callout>
+
+## Katalog Model
+
+<Tabs items={['Gratis', 'Hemat', 'Standar', 'Premium']}>
+  <Tabs.Tab>
+
+Model **gratis** — tidak memotong kredit AI sama sekali.
+
+| Model | Keunggulan | Context |
+|-------|-----------|---------|
+| `google/gemma-3-27b-it:free` | Vision support | 131K |
+| `nvidia/nemotron-nano-12b-vl:free` | Vision + video | 128K |
+| `meta-llama/llama-3.3-70b-instruct:free` | General purpose | 128K |
+
+⚠️ Model gratis bisa lebih lambat dan ada rate limit.
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+
+Model **hemat** — kualitas bagus, harga rendah. **Rekomendasi untuk penggunaan sehari-hari.**
+
+| Model | Keunggulan | Harga (per 1M token) |
+|-------|-----------|---------------------|
+| `google/gemini-2.5-flash` ⭐ | Cepat, multimodal, 1M ctx | $0.30 in / $2.50 out |
+| `google/gemini-3.1-flash-lite` | Default bot baru, hemat | $0.25 in / $1.50 out |
+| `deepseek/deepseek-v4-flash` | 1M ctx, teks saja, MURAH | $0.14 in / $0.28 out |
+| `openai/gpt-4.1-mini` | OpenAI, vision support | $0.40 in / $1.60 out |
+| `openai/gpt-5-nano` | GPT nano, 400K ctx | $0.05 in / $0.40 out |
+| `anthropic/claude-haiku-4.5` | Claude hemat, vision | Via OR |
+| `meta-llama/llama-4-maverick` | Meta, 1M ctx | $0.15 in / $0.60 out |
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+
+Model **standar** — kualitas tinggi untuk tugas kompleks.
+
+| Model | Keunggulan | Harga |
+|-------|-----------|-------|
+| `google/gemini-2.5-pro` | Reasoning kuat, 1M ctx | $1.25 in / $10 out |
+| `anthropic/claude-sonnet-4.5` | Top pick, 1M ctx | Via OR |
+| `openai/gpt-4.1` | GPT flagship 1M ctx | $2.00 in / $8.00 out |
+| `openai/gpt-4o` | Multimodal flagship | $2.50 in / $10 out |
+| `x-ai/grok-4` | xAI, 256K, coding | $3.00 in / $15 out |
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+
+Model **premium** — terpintar, terbaik, untuk tugas paling sulit.
+
+| Model | Keunggulan | Harga |
+|-------|-----------|-------|
+| `openai/gpt-5` | Flagship OpenAI | $1.25 in / $10 out |
+| `openai/gpt-5.1` | Next-gen GPT | $10 in / $30 out |
+| `anthropic/claude-opus-4.5` | Reasoning terbaik Anthropic | Via OR |
+| `google/gemini-3.1-pro-preview` | Gemini terbaru, 1M ctx | $2.00 in / $12 out |
+| `x-ai/grok-4-fast` | 2M ctx, coding + reasoning | $0.20 in / $0.50 out |
+
+  </Tabs.Tab>
+</Tabs>
+
+## Rekomendasi berdasarkan use case
+
+| Use case | Model yang disarankan | Alasan |
+|----------|----------------------|--------|
+| **Chat sehari-hari** | `gemini-2.5-flash` | Cepat, murah, multimodal |
+| **Coding & agentic** | `moonshotai/kimi-k2.6` | 262K ctx, tool calling kuat |
+| **Finansial / trading** | `kimi-k2.6` atau `deepseek-v4-flash` | Gemini kadang strict di topik ini |
+| **Hemat biaya max** | `deepseek-v4-flash` | 1M ctx, $0.14/1M token |
+| **Context sangat panjang** | `x-ai/grok-4-fast` | 2M context window |
+| **Kualitas max** | `gpt-5.1` atau `claude-opus-4.5` | Terpintar yang tersedia |
+
+## Cara kerja Model Picker di Telegram
+
+Ketik `/model` di Telegram untuk melihat 36+ pilihan model:
+
+```
+/model openrouter
+  → Select a provider: openrouter (36)
+    → Semua model tersedia
+```
+
+Pilih model dari list untuk **sesi override** (sementara). Untuk permanen, minta bot via chat.
+
+<Callout type="warning">
+  **Context window besar = lebih mahal.** Model dengan 1M+ context window akan memproses seluruh history percakapan yang lebih panjang → biaya lebih tinggi per pesan jika punya banyak riwayat chat. Gunakan `/new` secara berkala untuk reset context.
+</Callout>
+
+## Custom model
+
+Kamu bisa menggunakan model OpenRouter apa pun, tidak terbatas pada daftar di atas:
+
+```
+openrouter/<vendor>/<model-id>
+```
+
+Contoh:
+```
+openrouter/meta-llama/llama-3.3-70b-instruct
+openrouter/qwen/qwen3-coder-30b-a3b-instruct
+```
+
+Cek semua model yang tersedia di [openrouter.ai/models](https://openrouter.ai/models).

@@ -1,0 +1,61 @@
+---
+title: Custom Commands
+description: Cara membuat dan menggunakan custom slash commands di bot BikinBot
+---
+
+import { Callout } from 'nextra/components'
+
+# Custom Commands
+
+Kamu bisa membuat **custom slash commands** — shortcut untuk perintah yang sering digunakan.
+
+Contoh: ketik `/laporan` dan bot langsung jalankan template laporan yang sudah kamu setup.
+
+## Cara membuat command
+
+Via dashboard BikinBot → tab **Commands** → **Tambah Command**:
+
+| Field | Keterangan |
+|-------|-----------|
+| **Command** | Nama command tanpa `/` (contoh: `laporan`) |
+| **Deskripsi** | Penjelasan singkat untuk user |
+| **Prompt** | Instruksi yang dijalankan ketika command dipanggil |
+
+Atau minta bot via chat:
+```
+buat command /laporan yang akan membuat ringkasan pengeluaran minggu ini
+```
+
+## Contoh command yang berguna
+
+**Laporan harian:**
+```
+/laporan → "Buatkan ringkasan aktivitas dan pengeluaran hari ini berdasarkan yang sudah kita bahas"
+```
+
+**Brainstorm ide:**
+```
+/ide → "Berikan 5 ide konten untuk media sosial bisnis saya minggu ini"
+```
+
+**Checklist pagi:**
+```
+/pagi → "Tampilkan todo list dan jadwal hari ini"
+```
+
+**Template email:**
+```
+/email → "Bantu saya draft email profesional berdasarkan konteks berikut:"
+```
+
+## Lihat semua commands
+
+Ketik `/` di Telegram untuk melihat daftar semua commands yang tersedia (built-in + custom).
+
+<Callout type="info">
+  Commands bisa dibuat tanpa coding. Bot mengeksekusi prompt yang kamu define saat command dipanggil.
+</Callout>
+
+## Commands Built-in
+
+Selain custom commands, ada commands built-in yang selalu tersedia. Lihat daftar lengkap di [Commands Telegram →](/docs/platform/telegram-commands)

@@ -1,0 +1,79 @@
+---
+title: Web Search & Browser
+description: Cara menggunakan kemampuan browsing internet dan web scraping bot BikinBot
+---
+
+import { Callout } from 'nextra/components'
+
+# Web Search & Browser
+
+Bot kamu bisa **browsing internet secara real-time** dan mengambil informasi dari website — langsung dari chat Telegram.
+
+## Web Search
+
+Bot menggunakan DuckDuckGo sebagai search engine default (gratis, tidak perlu setup):
+
+```
+cari berita terbaru tentang harga emas hari ini
+```
+
+```
+cari informasi: cara mengajukan paten di Indonesia
+```
+
+```
+riset kompetitor: siapa saja pemain utama di industri e-commerce Indonesia?
+```
+
+Bot akan search, baca hasilnya, dan summarize untuk kamu.
+
+## Browsing Website
+
+Bot bisa membuka dan membaca konten dari website tertentu:
+
+```
+buka website tokopedia.com dan analisis tampilan halamannya
+```
+
+```
+cek harga produk ini di shopee.com: [link produk]
+```
+
+```
+baca artikel ini dan buatkan ringkasannya: [URL artikel]
+```
+
+## Stealth Browser
+
+Untuk website yang susah di-akses biasa, bot menggunakan **Chrome Stealth** dengan anti-detect:
+
+- User-agent rotation
+- Viewport randomization
+- Anti-bot bypass (untuk situs biasa)
+
+<Callout type="warning">
+  **Gunakan secara bertanggung jawab.** Bot TIDAK akan membantu scraping untuk:
+  - Data pribadi tanpa izin
+  - Konten yang dilindungi copyright untuk dipublish
+  - Login ke akun orang lain
+  - Situs banking atau ticketing
+
+  Jika scraping gagal 2x berturut-turut untuk URL yang sama, bot akan berhenti mencoba dan memberitahu kamu.
+</Callout>
+
+## Tips web search efektif
+
+- **Spesifik keyword** lebih baik dari pertanyaan umum
+- Sebutkan **bahasa/region** jika penting: "cari dalam bahasa Inggris", "cari berita Indonesia"
+- Untuk riset mendalam: "riset mendalam tentang X, buat laporan komprehensif"
+
+## Brave Search (Opsional)
+
+Untuk hasil search berkualitas lebih tinggi, kamu bisa menambahkan Brave Search API:
+
+```
+simpan credential BRAVE_API_KEY dengan nilai:
+[API key dari brave.com/search/api]
+```
+
+Setelah disimpan, bot akan menggunakan Brave Search secara otomatis.

@@ -1,0 +1,29 @@
+{
+  "getting-started": {
+    "title": "🚀 Mulai",
+    "type": "separator"
+  },
+  "mulai-cepat": "Quick Start (5 menit)",
+  "apa-itu-bikinbot": "Apa itu BikinBot?",
+  "--": {
+    "type": "separator",
+    "title": "⚙️ Setup Bot"
+  },
+  "bot": "Bot",
+  "---": {
+    "type": "separator",
+    "title": "✨ Fitur"
+  },
+  "fitur": "Fitur",
+  "----": {
+    "type": "separator",
+    "title": "💡 Platform"
+  },
+  "platform": "Platform",
+  "-----": {
+    "type": "separator",
+    "title": "🛠 Bantuan"
+  },
+  "troubleshoot": "Troubleshoot",
+  "changelog": "Changelog"
+}

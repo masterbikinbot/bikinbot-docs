@@ -1,0 +1,63 @@
+---
+title: Generate Video
+description: Cara membuat video pendek dengan AI dari Telegram di BikinBot
+---
+
+import { Callout } from 'nextra/components'
+
+# Generate Video
+
+Bot kamu bisa membuat **video pendek** langsung dari chat Telegram. Prosesnya asinkron — kamu minta, bot request ke provider, video dikirim otomatis ke chat saat selesai (30 detik – 5 menit).
+
+## Cara menggunakan
+
+```
+buatkan video animasi logo berputar, background gradien biru-ungu, 5 detik
+```
+
+```
+buat video promosi produk skincare, model cantik, studio setting, 10 detik
+```
+
+```
+video cinematic sunset di pantai, slow motion, 8 detik
+```
+
+Setelah request, bot akan langsung memberi tahu:
+> 🎬 Video sedang dibuat, akan dikirim otomatis dalam 30 detik – 5 menit.
+
+<Callout type="info">
+  **Tidak perlu menunggu** — kamu bisa lanjut chat, bot akan kirim video begitu selesai.
+</Callout>
+
+## Spesifikasi video
+
+| Parameter | Nilai |
+|-----------|-------|
+| Durasi | 3–10 detik |
+| Format | MP4 |
+| Resolusi | Tergantung provider |
+| Provider | Bytedance Seedance (default) / Alibaba WAN |
+| Estimasi waktu | 30 detik – 5 menit |
+
+## Harga
+
+Harga video dihitung per detik (bukan per pesan):
+- **Bytedance Seedance**: ~$0.006/detik
+- **Alibaba WAN**: ~$0.04/detik
+
+Biaya otomatis dipotong dari kredit AI.
+
+## Cek status & batalkan
+
+```
+cek status video saya
+```
+
+```
+batalkan generate video
+```
+
+<Callout type="warning">
+  Video yang sedang diproses **tidak bisa di-edit** setelah dikirim. Periksa deskripsimu sebelum konfirmasi.
+</Callout>

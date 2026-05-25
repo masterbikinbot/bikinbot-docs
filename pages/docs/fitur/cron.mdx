@@ -1,0 +1,92 @@
+---
+title: Jadwal Otomatis
+description: Cara membuat jadwal otomatis, reminder, dan broadcast terjadwal di BikinBot
+---
+
+import { Callout } from 'nextra/components'
+
+# Jadwal Otomatis (Cron)
+
+Bot kamu bisa mengirimkan **pesan terjadwal** secara otomatis — reminder harian, laporan mingguan, notifikasi, atau apapun yang kamu butuhkan.
+
+## Cara membuat jadwal
+
+Minta bot via chat (cara paling mudah):
+
+```
+buat jadwal: setiap hari jam 8 pagi, ingatkan saya untuk cek email bisnis
+```
+
+```
+buat reminder: setiap Senin jam 9, buat ringkasan rencana minggu ini
+```
+
+```
+jadwalkan: tanggal 1 setiap bulan jam 10 pagi, kirim laporan pengeluaran
+```
+
+Bot akan konfirmasi dan membuat jadwal otomatis.
+
+<Callout type="info">
+  Jadwal berjalan di timezone **Asia/Jakarta (WIB)** secara default. Sebutkan timezone lain jika perlu.
+</Callout>
+
+## Format jadwal (untuk pengguna teknis)
+
+Jadwal menggunakan format **cron expression** (`menit jam hari bulan hari-minggu`):
+
+| Ekspresi | Arti |
+|----------|------|
+| `0 8 * * *` | Setiap hari jam 08:00 |
+| `0 8 * * 1` | Setiap Senin jam 08:00 |
+| `0 9 1 * *` | Tanggal 1 setiap bulan jam 09:00 |
+| `*/30 * * * *` | Setiap 30 menit |
+| `0 6,12,18 * * *` | Jam 6, 12, dan 18 setiap hari |
+
+## Contoh jadwal populer
+
+**Reminder harian:**
+```
+buat jadwal harian jam 7:30: ingatkan untuk cek todo list hari ini
+```
+
+**Laporan mingguan:**
+```
+setiap Jumat jam 5 sore, buatkan ringkasan pencapaian minggu ini
+```
+
+**Pengingat meeting:**
+```
+setiap hari Selasa jam 9:55, ingatkan meeting standup jam 10
+```
+
+**Motivasi pagi:**
+```
+setiap pagi jam 6, kirim quote motivasi dan reminder aktivitas hari ini
+```
+
+## Lihat dan kelola jadwal
+
+Untuk melihat daftar jadwal yang aktif:
+```
+tampilkan semua jadwal saya
+```
+
+Untuk hapus jadwal:
+```
+hapus jadwal reminder harian
+```
+
+Atau via dashboard BikinBot → tab **Jadwal**.
+
+## Batas jadwal
+
+| Tier | Jadwal maksimum |
+|------|-----------------|
+| Basic | 15 jadwal |
+| Pro | 15 jadwal |
+| Ultra | 15 jadwal |
+
+<Callout type="warning">
+  **Bot harus dalam status Running** untuk jadwal berjalan. Jika bot di-stop atau kredit habis, jadwal akan ter-skip sampai bot aktif kembali.
+</Callout>

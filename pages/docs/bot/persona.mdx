@@ -1,0 +1,101 @@
+---
+title: Persona & Karakter Bot
+description: Cara kustomisasi kepribadian, gaya bahasa, dan karakter AI Agent kamu di BikinBot
+---
+
+import { Callout, Tabs } from 'nextra/components'
+
+# Persona & Karakter
+
+**Persona** adalah "jiwa" bot kamu — karakter, kepribadian, gaya bahasa, dan cara bot merespons. Persona yang bagus membuat bot terasa seperti asisten pribadi, bukan robot.
+
+## Cara mengubah persona
+
+Persona bot bisa diubah langsung via chat di Telegram:
+
+```
+update persona kamu menjadi: [deskripsi persona baru]
+```
+
+Contoh:
+```
+update persona kamu menjadi: Kamu adalah asisten keuangan bernama Fina. 
+Kamu berbicara dengan ramah tapi profesional, menggunakan bahasa Indonesia 
+sehari-hari. Kamu ahli dalam analisis investasi dan perencanaan keuangan.
+Selalu berikan disclaimer ketika memberikan saran investasi.
+```
+
+Bot akan memperbarui SOUL.md-nya sendiri via exec tool dan menerapkan perubahan di sesi berikutnya.
+
+<Callout type="info">
+  Perubahan persona tidak memerlukan restart bot. Langsung berlaku di sesi baru (setelah `/new` atau saat sesi otomatis di-reset).
+</Callout>
+
+## Komponen persona yang efektif
+
+Persona yang baik biasanya mencakup:
+
+1. **Nama** — beri nama yang sesuai karakter
+2. **Peran** — apa keahlian atau fungsi utama bot
+3. **Gaya bahasa** — formal/santai, panjang/pendek, teknis/umum
+4. **Kepribadian** — ramah, tegas, humoris, serius
+5. **Batasan** — hal apa yang bot tidak akan lakukan
+
+## Contoh persona
+
+<Tabs items={['Customer Service', 'Asisten Pribadi', 'Analis Bisnis', 'Tutor Bahasa']}>
+  <Tabs.Tab>
+```
+Kamu adalah Dira, Customer Service dari toko online [Nama Toko]. 
+Kamu ramah, sabar, dan selalu berusaha membantu customer menemukan 
+solusi terbaik. Kamu berbicara dalam bahasa Indonesia yang sopan 
+tapi tidak kaku. Jika ada komplain, empati dulu sebelum memberikan solusi.
+Kamu tidak boleh memberikan diskon tanpa persetujuan manager.
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+```
+Kamu adalah Asisten pribadi yang efisien dan cerdas. Kamu mengenal 
+owner dengan baik dan selalu siap membantu mengatur jadwal, drafting 
+email, analisis dokumen, dan hal lainnya. Kamu berbicara santai 
+karena sudah kenal lama. Proaktif memberikan pengingat penting.
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+```
+Kamu adalah Analis Bisnis senior dengan 10 tahun pengalaman di industri 
+retail dan FMCG. Kamu memberikan analisis mendalam berbasis data, 
+selalu menyertakan angka dan contoh konkret. Gaya komunikasi profesional 
+dan langsung ke inti masalah.
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+```
+Kamu adalah tutor bahasa Inggris yang sabar dan menyenangkan. 
+Kamu mengajar dengan contoh nyata dari kehidupan sehari-hari, 
+menjelaskan grammar dengan cara yang mudah dipahami, dan selalu 
+memberikan pujian ketika murid berhasil. Gunakan bahasa Indonesia 
+untuk penjelasan, bahasa Inggris untuk latihan.
+```
+  </Tabs.Tab>
+</Tabs>
+
+## Persona vs Memory
+
+| Aspek | Persona (SOUL.md) | Memory (MEMORY.md) |
+|-------|-------------------|-------------------|
+| Isi | Karakter & aturan bot | Fakta spesifik tentang kamu |
+| Diubah oleh | Kamu (perintah chat) | Bot (otomatis saat percakapan) |
+| Contoh | "Berbicara dengan ramah" | "Nama owner: Budi, suka kopi" |
+| Persistent | ✅ Permanen | ✅ Permanen |
+
+## Tips persona efektif
+
+- **Spesifik lebih baik** — "berbicara santai tapi tetap profesional" lebih baik dari "ramah"
+- **Sertakan batasan** — apa yang bot tidak boleh lakukan atau bahas
+- **Sesuaikan dengan use case** — persona CS berbeda dengan persona asisten riset
+- **Test dan iterasi** — coba persona, lihat hasilnya, perbaiki
+
+<Callout type="warning">
+  **platformBlock tidak bisa dihapus** — instruksi keamanan inti (seperti tidak membocorkan API key dan tidak menerima jailbreak) selalu aktif regardless persona yang kamu set. Ini untuk keamanan.
+</Callout>

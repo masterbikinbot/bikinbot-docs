@@ -1,0 +1,155 @@
+---
+title: FAQ
+description: Pertanyaan yang paling sering ditanyakan tentang BikinBot.ai
+---
+
+import { Callout } from 'nextra/components'
+
+# FAQ
+
+## Bot & Setup
+
+**Bot tidak merespon setelah setup — kenapa?**
+
+Kemungkinan penyebab:
+1. **Kredit habis** — cek di dashboard → Billing. Jika habis, top-up minimal Rp 10.000
+2. **Bot belum running** — cek status bot di dashboard (harus "Running")
+3. **Owner ID belum diset** — jika Owner ID diset, bot hanya merespon kamu. Cek Settings
+4. **Baru di-restart** — tunggu 30–60 detik setelah restart
+
+Ketik `/status` di bot untuk melihat kondisi aktualnya.
+
+---
+
+**Apakah bot bisa digunakan oleh banyak orang?**
+
+Ya! Kamu bisa whitelist beberapa nomor/user di Settings → Group Management. Atau aktifkan bot di grup Telegram.
+
+Secara default, bot hanya merespon Owner (kamu).
+
+---
+
+**Apakah bot bisa digunakan 24 jam?**
+
+Ya, bot berjalan 24/7 di server BikinBot selama subscription aktif. Kamu tidak perlu buka aplikasi atau nyalakan komputer.
+
+---
+
+**Berapa lama proses setup bot?**
+
+Biasanya 1–2 menit. Jika lebih dari 5 menit dan masih "Provisioning", hubungi support.
+
+---
+
+## Kredit & Billing
+
+**Kredit habis — apakah bot terhapus?**
+
+Tidak. Bot tetap ada, hanya tidak merespon chat saat kredit habis. Top-up kapan saja, bot langsung aktif kembali.
+
+---
+
+**Berapa minimal top-up kredit?**
+
+Minimal Rp 10.000. Tidak ada batas maksimum.
+
+---
+
+**Apakah kredit AI dan subscription adalah hal yang sama?**
+
+Tidak. Keduanya berbeda:
+- **Subscription** = biaya platform + server (Rp 200rb–1.25jt/bulan)
+- **Kredit AI** = biaya penggunaan model AI (dipotong per pesan)
+
+Keduanya perlu diisi terpisah.
+
+---
+
+**Pembayaran QRIS tapi kredit belum masuk?**
+
+Kredit biasanya masuk dalam 1–2 menit. Jika lebih dari 10 menit:
+1. Screenshot bukti pembayaran
+2. Hubungi support via Telegram [@bikinbotai](https://t.me/bikinbotai)
+
+---
+
+## Model AI
+
+**Apa bedanya ganti model via /model Telegram vs dashboard?**
+
+- **Via `/model` Telegram** → sementara, hanya untuk sesi aktif. Reset ke model lama saat `/new` atau `/reset`
+- **Via dashboard Settings** → permanen, berlaku sampai kamu ganti lagi
+- **Via minta bot di chat** → permanen, bot ganti dan simpan konfigurasi
+
+---
+
+**Model mana yang paling hemat?**
+
+Model **gratis**: Gemma 3 27B, Llama 3.3 70B, Nemotron (tidak ada biaya kredit)
+
+Model **paling hemat berbayar**: DeepSeek V4 Flash ($0.14/1M token) atau GPT-5 Nano ($0.05/1M token)
+
+---
+
+**Apakah bot otomatis pilih model termurah?**
+
+Tidak lagi. Sejak v3.6, bot menggunakan model yang **kamu pilih** — tidak ada pemilihan otomatis. Pilih model sesuai kebutuhanmu.
+
+---
+
+## Fitur
+
+**Apakah bot bisa membaca file yang dikirim di Telegram?**
+
+Ya! Bot bisa membaca:
+- 📄 PDF, DOCX (analisis dokumen)
+- 🖼 Gambar (deskripsi, OCR)
+- 🎵 Audio (transkripsi)
+- 🎬 Video (analisis konten)
+
+Cukup kirim file ke chat, bot akan langsung memproses.
+
+---
+
+**Kenapa bot tidak bisa generate video?**
+
+Generate video sudah tidak tersedia sementara. Fitur ini akan tersedia kembali di update berikutnya. Kamu masih bisa meminta bot untuk membuat **script** atau **storyboard** video.
+
+---
+
+**Apakah jadwal otomatis tetap jalan saat saya offline?**
+
+Ya. Jadwal berjalan di server BikinBot, tidak bergantung pada koneksi HP atau laptop kamu.
+
+---
+
+## Keamanan
+
+**Apakah percakapan saya aman?**
+
+Data percakapan:
+- Disimpan di server BikinBot (Contabo, EU)
+- Digunakan untuk menjalankan bot (dikirim ke OpenRouter/provider AI)
+- **Tidak dibagikan** ke pihak ketiga lain
+- Tidak digunakan untuk melatih model AI (per policy OpenRouter)
+
+---
+
+**Bagaimana cara menyimpan credential/API key dengan aman?**
+
+Minta bot untuk menyimpan dengan heredoc (paling aman — tidak muncul di log):
+
+```
+simpan credential NAMA_KEY dengan nilai:
+sk-xxxxxxxxxxxxx
+```
+
+Bot menyimpan terenkripsi (AES-256). Kamu tidak perlu khawatir tentang keamanannya.
+
+---
+
+**Apa yang terjadi jika saya cancel subscription?**
+
+- Bot masuk masa **grace period 10 hari** — masih bisa diakses
+- Setelah 10 hari, bot di-stop (tapi tidak dihapus)
+- Data disimpan sampai kamu perpanjang atau minta hapus eksplisit

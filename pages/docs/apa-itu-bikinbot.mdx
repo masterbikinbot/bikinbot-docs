@@ -1,0 +1,95 @@
+---
+title: Apa itu BikinBot.ai?
+description: Kenali platform BikinBot.ai — cara kerja, fitur utama, dan mengapa ribuan orang menggunakannya
+---
+
+import { Cards, Card, Callout } from 'nextra/components'
+
+# Apa itu BikinBot.ai?
+
+**BikinBot.ai** adalah platform yang memungkinkan siapa saja membuat **AI Agent personal** di Telegram atau WhatsApp — tanpa coding, tanpa server sendiri.
+
+Bot kamu ditenagai oleh model AI terbaru (GPT-5, Claude, Gemini, dan 30+ model lainnya) dan bisa melakukan jauh lebih banyak dari chatbot biasa.
+
+## Bukan sekadar chatbot
+
+BikinBot berbeda dari chatbot biasa karena AI Agent kamu bisa:
+
+- **Mengingat** konteks percakapan, nama, dan preferensi kamu
+- **Membaca** file PDF, DOCX, gambar, audio, video
+- **Browsing** internet secara real-time
+- **Menjalankan** kode dan script (Python, Node.js, bash)
+- **Membuat** gambar, video, dan musik dari teks
+- **Terjadwal** mengirim reminder atau laporan otomatis
+
+## Cara kerja
+
+```
+Kamu (Telegram/WhatsApp)
+    │
+    ▼
+OpenClaw Gateway (per-bot, isolated)
+    │
+    ▼
+BikinBot.ai Platform (Fastify API)
+    │
+    ▼
+OpenRouter → GPT-5 / Claude / Gemini / dll
+```
+
+Setiap user mendapat **satu bot terpisah** yang berjalan di server dedicated dengan isolasi penuh — bukan shared resource.
+
+## Fitur utama
+
+<Cards>
+  <Card title="36+ Model AI" href="/docs/bot/model">
+    Pilih dari model gratis hingga GPT-5, Claude Opus, Grok 4. Ganti kapan saja.
+  </Card>
+  <Card title="Memory Persisten" href="/docs/fitur/memory">
+    Bot ingat nama, preferensi, keputusan, dan konteks secara otomatis di semua sesi.
+  </Card>
+  <Card title="Knowledge Base" href="/docs/fitur/knowledge">
+    Upload dokumen perusahaan, produk, atau panduan — bot langsung paham.
+  </Card>
+  <Card title="Jadwal Otomatis" href="/docs/fitur/cron">
+    Set reminder harian, laporan mingguan, atau broadcast terjadwal.
+  </Card>
+  <Card title="Generate Media" href="/docs/fitur/image-gen">
+    Buat gambar, video, musik dari deskripsi teks langsung di Telegram.
+  </Card>
+  <Card title="Web Search" href="/docs/fitur/web-search">
+    Browsing internet, scraping website, riset real-time — semua bisa.
+  </Card>
+</Cards>
+
+## Tier & Harga
+
+| Tier | RAM | CPU | Disk | Harga |
+|------|-----|-----|------|-------|
+| **Basic** | 2 GB | 0.5 vCPU | 5 GB | ~Rp 200rb/bln |
+| **Pro** | 4 GB | 1 vCPU | 10 GB | Rp 750rb/bln |
+| **Ultra** | 8 GB | 2 vCPU | 25 GB | Rp 1.25jt/bln |
+
+Harga di atas adalah biaya subscription platform. **Kredit AI** (untuk penggunaan model) diisi terpisah dan dipotong per pesan.
+
+<Callout type="info">
+  **Estimasi kredit:** Model gratis tidak memotong kredit. Model standar (Gemini Flash, GPT-4.1 Mini) ~Rp 1–5 per pesan. Model premium (GPT-5, Claude Opus) ~Rp 50–200 per pesan.
+</Callout>
+
+## Perbandingan
+
+| Fitur | BikinBot.ai | Chatbot biasa | Self-hosted OpenClaw |
+|-------|-------------|---------------|---------------------|
+| Setup | 5 menit | Bervariasi | 30+ menit |
+| Infrastruktur | Diurus BikinBot | — | Kamu sendiri |
+| Update otomatis | ✅ | — | Manual |
+| Memory persisten | ✅ | ❌ | ✅ |
+| Generate gambar | ✅ | ❌ | Setup manual |
+| Jadwal otomatis | ✅ | ❌ | ✅ |
+| Harga | Rp 200rb+/bln | — | Biaya server sendiri |
+
+## Mulai sekarang
+
+Kunjungi [bikinbot.ai](https://bikinbot.ai) dan buat bot pertamamu dalam 5 menit.
+
+→ [Quick Start](/docs/mulai-cepat)

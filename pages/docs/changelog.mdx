@@ -1,0 +1,90 @@
+---
+title: Changelog
+description: Riwayat update dan perubahan terbaru di BikinBot.ai
+---
+
+# Changelog
+
+Semua perubahan signifikan di platform BikinBot.ai.
+
+---
+
+## v3.6 — 2026-05-25
+_Pilihan Model: Lebih Banyak Model di Telegram + Simplifikasi Dashboard_
+
+**✨ Baru**
+- **Telegram `/model` picker sekarang menampilkan 36+ model** — sebelumnya hanya 4 pilihan. Kini semua model kurated tersedia dari Gratis (Gemma, Llama) hingga Premium (Claude Opus, GPT-5, Grok 4)
+- **Dashboard tab berganti nama jadi "Pilihan Model"** — lebih jelas dan fokus
+
+**🛠 Perbaikan**
+- **Ganti model via dashboard langsung aktif di Telegram** — seed list model di config bot diperbarui otomatis
+- **Smart Routing dihapus** — bot selalu menggunakan model yang kamu pilih, tidak ada pemilihan otomatis per pesan
+
+**⚡ Lebih baik**
+- **Dashboard Settings lebih bersih** — widget "Penghematan" dan banner Smart Routing dihapus, halaman lebih fokus
+
+---
+
+## v3.5 — 2026-05-25
+_Platform Hardening + Referral Fix + Cron Optimization_
+
+**✨ Baru**
+- **Referral benefit sekarang benar-benar jalan** — fix constraint database yang salah. Referrer dapat komisi 10% per pembayaran; referee dapat bonus Rp 20.000
+- **Referral commission tercatat penuh** — setiap komisi tersimpan di audit trail, tidak ada double-komisi
+
+**🛠 Perbaikan**
+- **Bot baru bisa dibuat lagi** — bug pada ExecStartPre unit systemd yang menyebabkan semua bot creation gagal sudah diperbaiki
+- **Dashboard tidak error saat banyak tab dibuka** — fix AuthApiError dari concurrent Supabase session refresh
+- **Bot yang sengaja distop tidak lagi direstart** — monitoring script tidak lagi salah deteksi bot stopped sebagai crash
+
+**⚡ Lebih baik**
+- 21 cron jobs diaudit, `wa-monitor` dihapus, 4 jadwal dioptimasi
+- Guardian alert lebih andal (secrets di env file, cooldown per-bot)
+- PM2 circuit breaker — stop restart setelah 10 crash berturut-turut
+- OpenClaw diperbarui ke **2026.5.22**
+
+---
+
+## v3.4 — 2026-05-23
+_AI Agent Capability Unlock + Stability Hardening_
+
+**✨ Baru**
+- **Video Generation** — buat video dari chat Telegram (30s–5 menit proses background)
+- **Music Generation** — buat musik original (setup GEMINI_API_KEY atau MINIMAX_API_KEY)
+- **Model pilihan tidak lagi di-reset** — ganti model di Settings langsung sinkron ke runtime
+
+**🛠 Perbaikan**
+- Bot tidak lagi stuck setelah koneksi terputus (kimi-k2.6, model reasoning)
+- Browser scraping lebih stabil (batas proses Chrome diperbesar)
+- Sesi korup otomatis diperbaiki
+
+---
+
+## v3.3 — 2026-05-22
+_Dashboard Overhaul + Platform Reliability_
+
+**✨ Baru**
+- **Reset AI Agent** di Settings → Zona Bahaya
+- **Kode referral di halaman Subscribe**
+- Analitik: toggle 90 hari + auto-refresh + tabel breakdown harian
+- Trend Kredit 7 Hari di Billing
+
+**🛠 Perbaikan**
+- Model reasoning timeout diperbaiki (120–300 detik sesuai model)
+- Jadwal otomatis tepat waktu (tidak lagi telat 3–5 menit)
+- Bot tidak amnesia setelah `/new`
+
+---
+
+## v3.0 — 2026-04-14
+_Platform Overhaul_
+
+**✨ Baru**
+- 30+ model AI premium (GPT-5.1, Gemini 3, Grok 4)
+- Telegram streaming ON
+- Grace period 10 hari setelah expired
+- Weekly balance report via Telegram
+
+---
+
+Untuk changelog lengkap, lihat [release notes →](https://bikinbot.ai/changelog)

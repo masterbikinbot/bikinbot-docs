@@ -1,0 +1,74 @@
+---
+title: Knowledge Base
+description: Upload dokumen agar bot bisa menjawab pertanyaan spesifik tentang bisnis atau produk kamu
+---
+
+import { Callout, Steps } from 'nextra/components'
+
+# Knowledge Base
+
+**Knowledge Base** memungkinkan kamu upload dokumen — PDF, DOCX, TXT, CSV — agar bot bisa menjawab pertanyaan spesifik berdasarkan konten dokumen tersebut.
+
+Contoh penggunaan:
+- Upload **katalog produk** → bot bisa jawab "berapa harga X?"
+- Upload **SOP perusahaan** → bot jadi asisten HR yang paham aturan
+- Upload **materi kelas** → bot jadi tutor yang mengajar dari buku teks kamu
+- Upload **manual teknis** → bot bisa bantu troubleshoot produk
+
+## Format file yang didukung
+
+| Format | Keterangan |
+|--------|-----------|
+| PDF | Dokumen, laporan, manual |
+| DOCX | Microsoft Word |
+| TXT | Plain text |
+| CSV | Data spreadsheet |
+| MD | Markdown |
+
+Ukuran maksimum: **10 MB per file**.
+
+## Cara upload Knowledge Base
+
+<Steps>
+
+### Buka Knowledge Base di dashboard
+
+Login ke [bikinbot.ai](https://bikinbot.ai) → pilih bot → tab **Knowledge Base**.
+
+### Upload file
+
+Klik **"Upload File"** dan pilih dokumen kamu. Beberapa file bisa diupload sekaligus.
+
+### Tunggu proses indexing
+
+File akan diproses dan di-chunk secara otomatis (biasanya 10–60 detik tergantung ukuran). Status berubah menjadi **"Active"** setelah selesai.
+
+### Test via bot
+
+Kirim pertanyaan ke bot yang relevan dengan isi dokumen. Bot akan mencari dan merespons berdasarkan konten.
+
+</Steps>
+
+<Callout type="info">
+  Knowledge Base menggunakan **vector search** — bot tidak langsung membaca file, tapi mencari bagian yang paling relevan berdasarkan pertanyaanmu.
+</Callout>
+
+## Cara bot menggunakan Knowledge Base
+
+Saat kamu bertanya, bot:
+1. Konversi pertanyaanmu ke embedding vector
+2. Cari bagian dokumen yang paling mirip (cosine similarity)
+3. Gunakan bagian tersebut sebagai konteks untuk menjawab
+
+Ini berarti bot **tidak hafal semua isi dokumen** — tapi bisa menemukan informasi spesifik dengan sangat akurat.
+
+## Tips Knowledge Base efektif
+
+- **Dokumen yang terstruktur** (heading, section, tabel) bekerja lebih baik dari dokumen yang semua teks rata
+- **Satu topik per file** lebih mudah di-retrieve daripada satu file berisi banyak topik
+- **Update file** jika konten berubah — hapus yang lama, upload yang baru
+- Untuk **data tabular** (harga, stok, dll), format CSV lebih baik dari PDF
+
+<Callout type="warning">
+  **Jangan upload dokumen sensitif** (password, data pribadi customer, dll) kecuali kamu percaya pada keamanan sistem. Semua file dienkripsi di rest, tapi bot bisa membaca isinya saat dipanggil.
+</Callout>

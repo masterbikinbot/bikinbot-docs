@@ -1,0 +1,11 @@
+{
+  "index": "Overview",
+  "memory": "Memory & Konteks",
+  "knowledge": "Knowledge Base",
+  "cron": "Jadwal Otomatis",
+  "image-gen": "Generate Gambar",
+  "video-gen": "Generate Video",
+  "music-gen": "Generate Musik",
+  "web-search": "Web Search & Browser",
+  "commands": "Custom Commands"
+}

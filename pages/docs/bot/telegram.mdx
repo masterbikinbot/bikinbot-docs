@@ -1,0 +1,103 @@
+---
+title: Setup Bot Telegram
+description: Panduan lengkap menghubungkan dan mengkonfigurasi bot Telegram di BikinBot.ai
+---
+
+import { Callout, Steps, Tabs } from 'nextra/components'
+
+# Bot Telegram
+
+Telegram adalah channel utama BikinBot.ai. Bot kamu menerima pesan via **webhook** (real-time delivery) — jauh lebih cepat dari polling biasa.
+
+## Cara mendapatkan Token Bot
+
+<Steps>
+
+### Buka @BotFather di Telegram
+
+Cari `@BotFather` dan klik **Start**.
+
+### Buat bot baru
+
+```
+/newbot
+```
+
+Ikuti instruksi: isi nama bot dan username (harus diakhiri `bot`).
+
+### Salin token
+
+BotFather akan kirim token seperti:
+```
+1234567890:ABCDefghijklmnopqrstuvwxyz
+```
+
+Simpan token ini, jangan bagikan ke siapapun.
+
+</Steps>
+
+<Callout type="warning">
+  **Jaga token tetap rahasia.** Token adalah kunci akses penuh ke bot kamu. Jika bocor, segera ganti via `/token` di @BotFather atau menu Settings → Ganti Token di dashboard.
+</Callout>
+
+## Konfigurasi Owner ID
+
+**Owner ID** adalah Telegram User ID kamu — memastikan hanya kamu yang bisa menggunakan bot secara penuh (termasuk exec commands, ganti model, dll).
+
+### Cara mendapatkan User ID kamu
+
+1. Buka **@userinfobot** atau **@RawDataBot** di Telegram
+2. Kirim `/start`
+3. Salin angka **Id** (bukan username, bukan token bot)
+
+### Set Owner ID
+
+1. Buka **Settings** di dashboard BikinBot
+2. Scroll ke bagian **Keamanan Telegram Owner**
+3. Tempel User ID kamu
+4. Klik **Simpan**
+
+<Callout type="info">
+  Setelah Owner ID diset, bot hanya menerima pesan dari kamu. User lain di luar whitelist tidak bisa berinteraksi dengan bot.
+</Callout>
+
+## Webhook vs Long-poll
+
+BikinBot menggunakan **webhook** untuk delivery pesan yang lebih cepat:
+
+| Mode | Kecepatan | Cara kerja |
+|------|-----------|------------|
+| **Webhook** ✅ | < 1 detik | Telegram langsung push pesan ke server BikinBot |
+| Long-poll | 1–3 detik | Bot terus-menerus tanya Telegram "ada pesan baru?" |
+
+Webhook aktif otomatis saat bot di-setup. Kamu tidak perlu konfigurasi manual.
+
+## Mengizinkan Group
+
+Secara default, bot hanya menerima DM dari Owner. Untuk mengaktifkan bot di grup:
+
+```
+/group-add
+```
+
+Kirim command ini ke bot, lalu masukkan link grup. Bot akan bergabung dan merespons di sana.
+
+> Atau via dashboard: **Settings → Group Management**
+
+## Ganti Token Bot
+
+Jika token bocor atau kamu ingin ganti:
+
+1. Buka **Settings** di dashboard
+2. Scroll ke **Token Bot**
+3. Klik **Ganti Token**
+4. Tempel token baru dari @BotFather
+5. Bot akan restart otomatis (~30 detik offline)
+
+<Callout type="warning">
+  Jangan restart bot secara manual setelah ganti token — sistem akan melakukannya otomatis.
+</Callout>
+
+## Command Telegram
+
+Setelah setup, bot kamu mendukung berbagai command built-in. Lihat daftar lengkap di [Commands Telegram →](/docs/platform/telegram-commands)

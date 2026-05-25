@@ -1,0 +1,105 @@
+---
+title: Pesan Error
+description: Panduan mengatasi pesan error yang muncul di bot BikinBot
+---
+
+import { Callout } from 'nextra/components'
+
+# Pesan Error
+
+## "Saldo kredit kamu habis"
+
+**Penyebab:** Kredit AI sudah nol.
+
+**Solusi:** Top-up kredit di dashboard → Billing. Minimal Rp 10.000.
+
+---
+
+## "Bot sedang tidak aktif (status: stopped_low_credit)"
+
+**Penyebab:** Kredit di bawah batas minimum, bot otomatis dihentikan.
+
+**Solusi:** Top-up kredit → bot otomatis aktif kembali dalam 1–2 menit.
+
+---
+
+## "Bot kamu butuh konfigurasi ulang"
+
+**Penyebab:** Ada masalah dengan koneksi API key bot ke OpenRouter.
+
+**Solusi:**
+1. Restart bot dari dashboard
+2. Jika masih bermasalah, hubungi support
+
+---
+
+## "Sesi chat kamu error karena riwayat rusak. Kirim /new"
+
+**Penyebab:** File sesi percakapan corrupt (bisa terjadi jika bot crash saat percakapan berjalan).
+
+**Solusi:** Ketik `/new` — sesi baru dimulai, masalah langsung teratasi.
+
+---
+
+## "Bot sedang mengalami gangguan. Coba lagi dalam beberapa menit."
+
+**Penyebab:** Error berturut-turut dalam waktu singkat (circuit breaker aktif).
+
+**Solusi:** Tunggu 5 menit, coba lagi. Jika masih bermasalah setelah 15 menit, restart bot dari dashboard.
+
+---
+
+## "⏳ Provider AI sedang sibuk (rate limit)"
+
+**Penyebab:** Terlalu banyak request ke provider AI dalam waktu singkat.
+
+**Solusi:** Tunggu 30–60 detik dan coba kirim ulang pesan.
+
+---
+
+## "💡 Konteks atau workspace bot terlalu besar"
+
+**Penyebab:** File workspace (SOUL.md, MEMORY.md, KNOWLEDGE.md, dll) terlalu besar sehingga melebihi context window model.
+
+**Solusi:**
+1. Ketik `/new` untuk reset sesi
+2. Jika masih terjadi, bersihkan Knowledge Base yang terlalu besar
+3. Ganti ke model dengan context window lebih besar (misal: `x-ai/grok-4-fast` dengan 2M token)
+
+---
+
+## "⚠️ Layanan AI sedang gangguan dari provider"
+
+**Penyebab:** Provider AI (OpenRouter/model tertentu) sedang ada gangguan.
+
+**Solusi:**
+1. Coba kirim ulang dalam 1–2 menit
+2. Jika masih gagal, ganti model yang berbeda via chat: "ganti model ke gemini-2.5-flash"
+
+---
+
+## "Bot kamu sedang ditinjau oleh tim teknis"
+
+**Penyebab:** Bot dalam status `needs_admin_attention` — perlu penanganan tim BikinBot.
+
+**Solusi:** Bot dalam antrian perbaikan otomatis. Biasanya selesai dalam 10–30 menit. Jika lebih dari 1 jam, hubungi support.
+
+---
+
+## Bot tidak bisa generate gambar
+
+**Penyebab:** Saldo kredit tidak cukup (minimal Rp 5.000 untuk generate gambar).
+
+**Solusi:** Top-up kredit.
+
+---
+
+## "Mohon maaf, generate video belum tersedia"
+
+**Status:** Fitur generate video sedang dalam maintenance. Kamu bisa minta bot membuat script atau storyboard sebagai alternatif.
+
+---
+
+<Callout type="info">
+  Masalah tidak terselesaikan? Hubungi support via Telegram: [@bikinbotai](https://t.me/bikinbotai) dengan menyertakan screenshot pesan error dan waktu terjadinya.
+</Callout>

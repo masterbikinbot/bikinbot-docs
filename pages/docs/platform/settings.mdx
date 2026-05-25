@@ -1,0 +1,79 @@
+---
+title: Settings
+description: Panduan lengkap menu Settings di BikinBot — persona, token, model, dan factory reset
+---
+
+import { Callout } from 'nextra/components'
+
+# Settings
+
+Dashboard BikinBot → **Settings** berisi semua konfigurasi bot kamu.
+
+## Pilihan Model AI
+
+Pilih model AI yang digunakan bot. Perubahan berlaku setelah bot restart otomatis (~15 detik).
+
+→ [Panduan lengkap Pilihan Model AI](/docs/bot/model)
+
+## Profil Bot
+
+- **Nama bot** — nama yang ditampilkan di header dashboard
+- **Username Telegram** — readonly, diatur di @BotFather
+
+## Keamanan Telegram Owner
+
+Set Telegram User ID kamu agar hanya kamu yang bisa menggunakan bot secara penuh.
+
+→ [Panduan lengkap Owner ID](/docs/bot/telegram#konfigurasi-owner-id)
+
+## Persona Bot
+
+Tampilkan persona aktif bot kamu. Untuk mengubah, chat langsung dengan bot:
+
+```
+update persona kamu menjadi: [deskripsi persona baru]
+```
+
+→ [Panduan lengkap Persona](/docs/bot/persona)
+
+## Token Bot
+
+Ganti token Telegram bot jika token lama bocor atau kamu ingin update.
+
+→ [Cara ganti token](/docs/bot/telegram#ganti-token-bot)
+
+## Restart Bot
+
+Restart bot secara manual — berguna jika bot tidak merespon atau setelah perubahan konfigurasi besar.
+
+<Callout type="info">
+  Bot butuh ~15–30 detik untuk restart. Selama restart, pesan yang masuk akan di-queue dan diproses setelah bot aktif.
+</Callout>
+
+## Factory Reset (Zona Bahaya)
+
+Reset total AI Agent ke kondisi awal pabrik.
+
+**Yang akan dihapus:**
+- ❌ Persona & karakter bot (SOUL.md → default)
+- ❌ Semua riwayat percakapan
+- ❌ Memory bot (MEMORY.md)
+- ❌ Knowledge base yang diupload
+
+**Yang TIDAK berubah:**
+- ✅ Koneksi Telegram (bot tetap bisa menerima pesan)
+- ✅ Subscription & kredit AI
+- ✅ Credential yang kamu simpan
+- ✅ Custom commands
+
+**Cara factory reset:**
+
+1. Buka **Settings**
+2. Scroll ke bawah → **Zona Bahaya**
+3. Klik **Reset AI Agent**
+4. Ketik `RESET` untuk konfirmasi
+5. Bot otomatis restart dan kembali ke kondisi awal
+
+<Callout type="warning">
+  **Factory Reset tidak bisa dibatalkan.** Semua percakapan, memory, dan persona akan hilang permanen. Backup informasi penting sebelum melakukan reset.
+</Callout>

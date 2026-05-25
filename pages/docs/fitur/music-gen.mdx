@@ -1,0 +1,74 @@
+---
+title: Generate Musik
+description: Cara membuat musik dan audio original dengan AI di BikinBot
+---
+
+import { Callout, Steps } from 'nextra/components'
+
+# Generate Musik
+
+Bot kamu bisa membuat **musik original** dari deskripsi teks — background music, jingle, atau audio kreatif lainnya.
+
+<Callout type="warning">
+  Fitur Generate Musik memerlukan **setup API key** terlebih dahulu (satu kali saja). Setelah setup, langsung bisa digunakan.
+</Callout>
+
+## Setup (satu kali)
+
+Pilih salah satu provider:
+
+<Steps>
+
+### Opsi A: Google Lyria (Rekomendasi)
+
+1. Dapatkan API key dari [console.cloud.google.com](https://console.cloud.google.com)
+2. Aktifkan **Gemini API** di project kamu
+3. Kirim ke bot:
+
+```
+simpan credential GEMINI_API_KEY dengan nilai:
+[paste API key kamu]
+```
+
+4. Restart bot via dashboard atau ketik di chat: `restart bot`
+
+### Opsi B: MiniMax
+
+1. Daftar di [platform.minimax.io](https://platform.minimax.io)
+2. Generate API key
+3. Kirim ke bot:
+
+```
+simpan credential MINIMAX_API_KEY dengan nilai:
+[paste API key kamu]
+```
+
+4. Restart bot
+
+</Steps>
+
+Setelah setup, tool `music_generate` akan muncul otomatis di bot.
+
+## Cara menggunakan
+
+```
+buat musik background lofi hiphop, tempo lambat, cocok untuk belajar
+```
+
+```
+buat jingle untuk toko kopi, ceria, 30 detik
+```
+
+```
+generate musik ambient untuk meditasi, minimalis, tanpa lirik
+```
+
+Setelah request, bot akan proses di background dan kirim file audio ke chat.
+
+## Biaya
+
+Biaya bergantung pada provider dan durasi. Dibebankan ke kredit API key yang kamu setup (bukan kredit BikinBot).
+
+<Callout type="info">
+  API key musik kamu disimpan secara terenkripsi di BikinBot dan hanya diakses saat generate musik.
+</Callout>

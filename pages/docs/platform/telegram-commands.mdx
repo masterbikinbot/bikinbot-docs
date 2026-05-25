@@ -1,0 +1,79 @@
+---
+title: Commands Telegram
+description: Daftar lengkap semua command bot yang tersedia di BikinBot via Telegram
+---
+
+# Commands Telegram
+
+Daftar semua command yang bisa digunakan langsung di chat Telegram dengan bot kamu.
+
+## Session Management
+
+| Command | Fungsi |
+|---------|--------|
+| `/new` | Mulai sesi chat baru. Memory permanen tetap ada, hanya konteks sesi yang di-reset. Berguna jika bot mulai "nyangkut" di topik lama. |
+| `/reset` | Reset sesi dan clear konteks sesi aktif. Mirip `/new`. |
+
+## Informasi & Monitoring
+
+| Command | Fungsi |
+|---------|--------|
+| `/status` | Lihat model aktif, model yang dikonfigurasi, uptime gateway, token usage, dan info sesi. |
+| `/model` | Buka picker model (36+ pilihan). Pilihan ini **sementara** untuk sesi aktif. Untuk permanen, minta via chat. |
+| `/model status` | Detail lengkap model yang sedang digunakan dan fallback chain. |
+
+## Contoh output `/status`
+
+```
+🦞 OpenClaw 2026.5.22
+⏱️ Uptime: gateway 2h 15m · system 12d 3h
+🧠 Configured default: openrouter/google/gemini-3.1-flash-lite
+📌 Session selected: openrouter/google/gemini-3.1-flash-lite
+🔄 Fallbacks: gemini-2.5-flash, deepseek-v4-flash
+🧮 Tokens: 45k in / 2.1k out
+📚 Context: 12k/1M (1%) · 🧹 Compactions: 0
+```
+
+## Model Management
+
+| Command | Fungsi |
+|---------|--------|
+| `/model` | Buka picker model Telegram — lihat dan pilih dari 36+ model |
+| `/model openrouter/google/gemini-2.5-flash` | Ganti model langsung (session override) |
+| `/model openrouter/deepseek/deepseek-v4-flash` | Ganti ke model tertentu |
+
+**Ingat:** Pergantian model via `/model` hanya berlaku untuk sesi aktif. Untuk perubahan permanen, gunakan dashboard atau minta bot via chat:
+
+```
+ganti model ke deepseek/deepseek-v4-flash
+```
+
+## Custom Commands
+
+Ketik `/` di chat untuk melihat semua custom commands yang kamu buat.
+
+→ [Panduan Custom Commands](/docs/fitur/commands)
+
+## Commands Platform
+
+Command-command ini dijalankan bot sebagai exec (bukan slash command Telegram):
+
+| Perintah | Fungsi |
+|---------|--------|
+| `bikinbot-status.sh` | Status lengkap bot (kredit, model, koneksi) |
+| `bikinbot-credit.sh` | Cek saldo kredit AI |
+| `bikinbot-model-change.sh <model>` | Ganti model **secara permanen** |
+| `bikinbot-restart.sh` | Restart bot |
+| `bikinbot-logs.sh` | Lihat log terbaru |
+
+Contoh penggunaan via chat:
+```
+cek saldo kredit saya
+```
+Bot akan menjalankan `bikinbot-credit.sh` dan menampilkan hasilnya.
+
+## Tips command
+
+- Gunakan `/new` setelah percakapan panjang untuk **kurangi biaya** (context lebih pendek)
+- Gunakan `/status` untuk **debug** jika bot tidak merespon seperti yang diharapkan
+- Ketik `/` dan tunggu — Telegram akan menampilkan semua command yang tersedia
