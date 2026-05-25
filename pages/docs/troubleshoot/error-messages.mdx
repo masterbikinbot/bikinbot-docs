@@ -94,9 +94,15 @@ import { Callout } from 'nextra/components'
 
 ---
 
-## "Mohon maaf, generate video belum tersedia"
+## "Maaf, generate video belum tersedia di platform"
 
-**Status:** Fitur generate video sedang dalam maintenance. Kamu bisa minta bot membuat script atau storyboard sebagai alternatif.
+**Penyebab:** Pesan teks yang terdeteksi sebagai permintaan video (misal: "buat video X") diblokir di level proxy.
+
+**Solusi:** Minta lebih eksplisit agar bot menggunakan tool `video_generate`:
+```
+gunakan video_generate tool untuk membuat: [deskripsi video]
+```
+Disarankan menggunakan model `kimi-k2.6` atau `gemini-2.5-flash` yang mendukung tool calling dengan baik.
 
 ---
 
