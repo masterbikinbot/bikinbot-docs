@@ -9,7 +9,7 @@ import { Cards, Card, Callout } from 'nextra/components'
 
 **BikinBot.ai** adalah platform yang memungkinkan siapa saja membuat **AI Agent personal** di Telegram — tanpa coding, tanpa server sendiri.
 
-Bot kamu ditenagai oleh model AI terbaru (GPT-5, Claude, Gemini, dan 30+ model lainnya) dan bisa melakukan jauh lebih banyak dari chatbot biasa.
+Bot kamu ditenagai oleh model AI terbaru (GPT-5, Claude, Gemini, dan 36 model pilihan) dan bisa melakukan jauh lebih banyak dari chatbot biasa.
 
 ## Bukan sekadar chatbot
 
@@ -26,14 +26,14 @@ BikinBot berbeda dari chatbot biasa karena AI Agent kamu bisa:
 
 ```
 Kamu (Telegram)
- 
- 
+    |
+    v
 OpenClaw Gateway (per-bot, isolated)
- 
- 
+    |
+    v
 BikinBot.ai Platform (Fastify API)
- 
- 
+    |
+    v
 OpenRouter → GPT-5 / Claude / Gemini / dll
 ```
 
@@ -49,7 +49,7 @@ Setiap user mendapat **satu bot terpisah** yang berjalan di server dedicated den
  Bot ingat nama, preferensi, keputusan, dan konteks secara otomatis di semua sesi.
  </Card>
  <Card title="Knowledge Base" href="/docs/fitur/knowledge">
- Upload dokumen perusahaan, produk, atau panduan — bot langsung paham.
+ Bagikan konteks bisnis ke bot via chat. Bot baca KNOWLEDGE.md otomatis.
  </Card>
  <Card title="Jadwal Otomatis" href="/docs/fitur/cron">
  Set reminder harian, laporan mingguan, atau broadcast terjadwal.
@@ -61,18 +61,18 @@ Setiap user mendapat **satu bot terpisah** yang berjalan di server dedicated den
  Browsing internet, scraping website, riset real-time — semua bisa.
  </Card>
 </Cards>
+## Harga Plan
 
-## Tier & Harga
-| Tier | RAM | CPU | Disk | Harga |
-|------|-----|-----|------|-------|
-| **Basic** | 2 GB | 0.5 vCPU | 5 GB | ~Rp 200rb/bln |
-| **Pro** | 4 GB | 1 vCPU | 10 GB | Rp 750rb/bln |
-| **Ultra** | 8 GB | 2 vCPU | 25 GB | Rp 1.25jt/bln |
+| Plan | Harga/bln | Credit AI Included | RAM | Disk |
+|------|-----------|-------------------|-----|------|
+| **Basic** | Rp 500.000 | Rp 100.000/bln | 2 GB | 5 GB |
+| **Pro** | Rp 750.000 | Rp 200.000/bln | 4 GB | 10 GB |
+| **Ultra** | Rp 1.250.000 | Rp 400.000/bln | 8 GB | 25 GB |
 
-Harga di atas adalah biaya subscription platform. **Kredit AI** (untuk penggunaan model) diisi terpisah dan dipotong per pesan.
+Setiap plan sudah **include credit AI** per bulan. Credit AI dipotong setiap kali bot merespon chat. Jika credit habis, bisa top-up tambahan mulai Rp 10.000.
 
 <Callout type="info">
- **Estimasi kredit:** Model gratis tidak memotong kredit. Model standar (Gemini Flash, GPT-4.1 Mini) ~Rp 1–5 per pesan. Model premium (GPT-5, Claude Opus) ~Rp 50–200 per pesan.
+  Estimasi biaya per pesan: Model gratis = Rp 0. Gemini Flash ~Rp 15. Premium (Claude Opus, GPT-5) ~Rp 100–500. Lihat detail di [Kredit & Billing](/docs/platform/credits).
 </Callout>
 
 ## Perbandingan
@@ -84,7 +84,7 @@ Harga di atas adalah biaya subscription platform. **Kredit AI** (untuk penggunaa
 | Memory persisten | | | |
 | Generate gambar | | | Setup manual |
 | Jadwal otomatis | | | |
-| Harga | Rp 200rb+/bln | — | Biaya server sendiri |
+| Harga | Rp 500.000+/bln | — | Biaya server sendiri |
 
 ## Mulai sekarang
 

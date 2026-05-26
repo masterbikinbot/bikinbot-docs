@@ -1,80 +1,88 @@
 ---
 title: Kredit & Billing
-description: Cara kerja kredit AI di BikinBot — top-up, estimasi biaya, dan tips hemat
+description: Harga plan, cara kerja kredit AI, top-up, dan estimasi biaya di BikinBot
 ---
 
 import { Callout } from 'nextra/components'
 
 # Kredit & Billing
 
-BikinBot menggunakan sistem **kredit AI** yang dipotong per pesan berdasarkan model yang dipilih.
+BikinBot menggunakan sistem gabungan: **subscription** (akses platform) dan **kredit AI** (konsumsi model per pesan).
 
-## Dua komponen biaya
-| Komponen | Fungsi | Cara bayar |
-|----------|--------|-----------|
-| **Subscription** | Akses platform + server dedicated | Top-up Rp 200rb–1.25jt/bulan |
-| **Kredit AI** | Konsumsi model AI per pesan | Top-up terpisah, pay-as-you-go |
+## Harga Plan
+
+| Plan | Harga/bln | Credit AI Included | RAM | Disk |
+|------|-----------|-------------------|-----|------|
+| **Basic** | Rp 500.000 | Rp 100.000/bln | 2 GB | 5 GB |
+| **Pro** | Rp 750.000 | Rp 200.000/bln | 4 GB | 10 GB |
+| **Ultra** | Rp 1.250.000 | Rp 400.000/bln | 8 GB | 25 GB |
 
 <Callout type="info">
- **Subscription** memberi kamu server bot yang berjalan 24/7. **Kredit AI** dipotong setiap bot merespon chat.
+  Setiap plan sudah **include credit AI** per bulan. Jika credit habis sebelum bulan berakhir, bisa top-up tambahan kapan saja. Credit tidak carry-over ke bulan berikutnya.
 </Callout>
 
-## Cara top-up kredit
+## Top-up Credit AI Tambahan
 
 1. Buka dashboard BikinBot → **Billing**
 2. Klik **"Top Up Kredit"**
 3. Pilih nominal (minimal Rp 10.000)
 4. Bayar via:
- - **QRIS** (scan dengan aplikasi apapun)
- - **Virtual Account** BNI, BRI, Mandiri, Permata, CIMB
-5. Kredit masuk dalam **1–2 menit** setelah pembayaran terkonfirmasi
+   - **QRIS** — scan dari e-wallet atau m-banking (biaya 0.7%)
+   - **Virtual Account** BNI, BRI, Mandiri, Permata, CIMB (biaya Rp 3.500)
+5. Credit masuk dalam **1–2 menit** setelah pembayaran terkonfirmasi
 
-## Estimasi biaya per pesan
-| Model | Estimasi per pesan* |
-|-------|---------------------|
-| Gratis (Gemma, Llama free) | Rp 0 |
-| Hemat (Gemini Flash, GPT-4.1 Mini) | Rp 1–5 |
-| Standar (Gemini Pro, Claude Sonnet) | Rp 10–50 |
-| Premium (GPT-5, Claude Opus) | Rp 50–500 |
+## Estimasi Biaya per Pesan
 
-*Estimasi untuk pesan biasa (bukan generate gambar/video). Harga aktual tergantung panjang pesan dan response.
+Berdasarkan rata-rata 500 token input + 300 token output (kurs USD/IDR = 16.500):
 
-## Generate media (biaya terpisah)
-| Tipe | Estimasi biaya |
-|------|----------------|
-| Generate gambar | Rp 600–3.000 per gambar |
-| Generate video | Rp 600–4.000 per video (tergantung durasi) |
-| Generate musik | Sesuai API key pribadi kamu |
+| Model | Estimasi per pesan |
+|-------|--------------------|
+| Model gratis (Gemma, Llama :free) | Rp 0 |
+| deepseek-v4-flash (termurah berbayar) | ~Rp 3 |
+| gemini-3.1-flash-lite (default bot baru) | ~Rp 9 |
+| gpt-4.1-mini | ~Rp 11 |
+| gemini-2.5-flash | ~Rp 15 |
+| gemini-2.5-pro / gpt-5 | ~Rp 60 |
+| claude-sonnet-4.5 / grok-4 | ~Rp 99 |
+| claude-opus-4.5 | ~Rp 495 |
 
-## Cek saldo kredit
+Harga aktual bervariasi tergantung panjang percakapan dan response bot.
 
+## Biaya Generate Media
+
+| Tipe | Estimasi |
+|------|----------|
+| Generate gambar | ~Rp 600–3.000 per gambar |
+| Generate video | ~Rp 600–4.000 per video |
+| Generate musik | Ditanggung API key milikmu sendiri |
+
+## Cek Saldo Credit
+
+Ketik di chat bot:
 ```
 cek saldo kredit saya
 ```
 
-Atau lihat di dashboard → **Billing** → kolom Kredit AI.
+Atau lihat di dashboard → **Billing**.
 
-## Alert kredit hampir habis
+## Kredit Hampir Habis
 
-Saat kredit mendekati batas rendah:
-- Bot mengirim **pesan peringatan langsung di chat**
-- Dashboard menampilkan notifikasi
-- Bot **tetap berjalan** sampai saldo benar-benar habis
+- Bot kirim **pesan peringatan langsung di chat**
+- Dashboard tampilkan notifikasi
+- Bot tetap berjalan sampai saldo benar-benar habis
 
-## Kredit habis — apa yang terjadi?
+## Kredit Habis — Apa yang Terjadi?
 
-Jika kredit habis:
 1. Bot berhenti merespon chat
-2. Muncul pesan: "Kredit AI habis, top-up di bikinbot.ai/billing"
-3. Bot **tidak di-delete** — cukup top-up, bot langsung aktif lagi
+2. Muncul pesan: *"Kredit AI habis, top-up di bikinbot.ai/billing"*
+3. Bot tidak dihapus — top-up kapan saja, bot langsung aktif kembali
 
 <Callout type="warning">
- **Kredit AI ≠ Saldo Referral.** Kredit AI hanya bisa dipakai untuk penggunaan bot. Saldo referral (komisi) hanya bisa di-withdraw ke rekening.
+  **Kredit AI bukan Saldo Referral.** Kredit AI dipakai untuk konsumsi model. Saldo referral (komisi 10%) hanya bisa di-withdraw ke rekening bank.
 </Callout>
 
-## Tips hemat kredit
+## Tips Hemat Credit
 
-- Gunakan model **Gemini Flash** atau **DeepSeek V4 Flash** untuk chat sehari-hari
-- Ketik `/new` secara berkala untuk reset context (pesan baru = input lebih pendek = lebih murah)
-- Pilih model **gratis** untuk pertanyaan sederhana
-- Monitor penggunaan di dashboard → **Analitik**
+- Gunakan model **deepseek-v4-flash** (~Rp 3/pesan) atau **model gratis** untuk percakapan ringan
+- Ketik `/new` secara berkala — reset context = input lebih pendek = lebih hemat
+- Pantau pemakaian di dashboard → **Analitik**

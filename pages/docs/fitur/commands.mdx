@@ -7,54 +7,68 @@ import { Callout } from 'nextra/components'
 
 # Custom Commands
 
-Kamu bisa membuat **custom slash commands** — shortcut untuk perintah yang sering digunakan.
+Bot kamu mendukung **custom slash commands** — shortcut untuk tindakan yang sering dilakukan. Commands disimpan di file COMMANDS.md di workspace bot.
 
-Contoh: ketik `/laporan` dan bot langsung jalankan template laporan yang sudah kamu setup.
+<Callout type="info">
+  Pengelolaan commands dilakukan via chat langsung ke bot, bukan via dashboard.
+</Callout>
 
 ## Cara membuat command
 
-Via dashboard BikinBot → tab **Commands** → **Tambah Command**:
-| Field | Keterangan |
-|-------|-----------|
-| **Command** | Nama command tanpa `/` (contoh: `laporan`) |
-| **Deskripsi** | Penjelasan singkat untuk user |
-| **Prompt** | Instruksi yang dijalankan ketika command dipanggil |
+Minta bot via chat:
 
-Atau minta bot via chat:
 ```
-buat command /laporan yang akan membuat ringkasan pengeluaran minggu ini
+buat command /laporan yang akan membuat ringkasan aktivitas dan pengeluaran hari ini
 ```
+
+```
+buat command /ide untuk memberikan 5 ide konten untuk media sosial bisnis saya minggu ini
+```
+
+```
+buat command /pagi untuk menampilkan todo list dan jadwal hari ini
+```
+
+Bot akan konfirmasi dan menyimpan command ke COMMANDS.md.
 
 ## Contoh command yang berguna
 
 **Laporan harian:**
 ```
-/laporan → "Buatkan ringkasan aktivitas dan pengeluaran hari ini berdasarkan yang sudah kita bahas"
+/laporan — ringkasan aktivitas + pengeluaran hari ini
 ```
 
-**Brainstorm ide:**
+**Brainstorm:**
 ```
-/ide → "Berikan 5 ide konten untuk media sosial bisnis saya minggu ini"
+/ide — 5 ide konten untuk media sosial minggu ini
 ```
 
 **Checklist pagi:**
 ```
-/pagi → "Tampilkan todo list dan jadwal hari ini"
+/pagi — todo list dan jadwal hari ini
 ```
 
 **Template email:**
 ```
-/email → "Bantu saya draft email profesional berdasarkan konteks berikut:"
+/email — bantu draft email profesional
 ```
 
-## Lihat semua commands
+## Lihat dan kelola command
 
-Ketik `/` di Telegram untuk melihat daftar semua commands yang tersedia (built-in + custom).
+Untuk melihat semua command yang aktif:
+```
+tampilkan semua command saya
+```
 
-<Callout type="info">
- Commands bisa dibuat tanpa coding. Bot mengeksekusi prompt yang kamu define saat command dipanggil.
+Untuk hapus command:
+```
+hapus command /laporan
+```
+
+## Cara pakai
+
+Ketik `/` di Telegram untuk melihat daftar commands yang tersedia (built-in + custom kamu).
+
+<Callout type="warning">
+  Commands hanya berlaku untuk bot kamu sendiri. User lain di luar whitelist tidak bisa menggunakan commands.
 </Callout>
-
-## Commands Built-in
-
-Selain custom commands, ada commands built-in yang selalu tersedia. Lihat daftar lengkap di [Commands Telegram →](/docs/platform/telegram-commands)

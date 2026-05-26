@@ -1,73 +1,82 @@
 ---
 title: Knowledge Base
-description: Upload dokumen agar bot bisa menjawab pertanyaan spesifik tentang bisnis atau produk kamu
+description: Cara membagikan konteks dan pengetahuan bisnis ke bot BikinBot kamu
 ---
 
-import { Callout, Steps } from 'nextra/components'
+import { Callout } from 'nextra/components'
 
 # Knowledge Base
 
-**Knowledge Base** memungkinkan kamu upload dokumen — PDF, DOCX, TXT, CSV — agar bot bisa menjawab pertanyaan spesifik berdasarkan konten dokumen tersebut.
-
-Contoh penggunaan:
-- Upload **katalog produk** → bot bisa jawab "berapa harga X?"
-- Upload **SOP perusahaan** → bot jadi asisten HR yang paham aturan
-- Upload **materi kelas** → bot jadi tutor yang mengajar dari buku teks kamu
-- Upload **manual teknis** → bot bisa bantu troubleshoot produk
-
-## Format file yang didukung
-| Format | Keterangan |
-|--------|-----------|
-| PDF | Dokumen, laporan, manual |
-| DOCX | Microsoft Word |
-| TXT | Plain text |
-| CSV | Data spreadsheet |
-| MD | Markdown |
-
-Ukuran maksimum: **10 MB per file**.
-
-## Cara upload Knowledge Base
-
-<Steps>
-
-### Buka Knowledge Base di dashboard
-
-Login ke [bikinbot.ai](https://bikinbot.ai) → pilih bot → tab **Knowledge Base**.
-
-### Upload file
-
-Klik **"Upload File"** dan pilih dokumen kamu. Beberapa file bisa diupload sekaligus.
-
-### Tunggu proses indexing
-
-File akan diproses dan di-chunk secara otomatis (biasanya 10–60 detik tergantung ukuran). Status berubah menjadi **"Active"** setelah selesai.
-
-### Test via bot
-
-Kirim pertanyaan ke bot yang relevan dengan isi dokumen. Bot akan mencari dan merespons berdasarkan konten.
-
-</Steps>
+Bot kamu memiliki file **KNOWLEDGE.md** di workspace yang dibaca otomatis saat sesi dimulai. File ini berisi konteks, informasi produk, panduan, atau data apa pun yang kamu ingin bot ketahui.
 
 <Callout type="info">
- Knowledge Base menggunakan **vector search** — bot tidak langsung membaca file, tapi mencari bagian yang paling relevan berdasarkan pertanyaanmu.
+  Upload file via dashboard tidak tersedia. Knowledge dikelola langsung via chat ke bot atau dengan meminta bot menulis ke file workspace-nya.
 </Callout>
 
-## Cara bot menggunakan Knowledge Base
+## Cara menambahkan knowledge
 
-Saat kamu bertanya, bot:
-1. Konversi pertanyaanmu ke embedding vector
-2. Cari bagian dokumen yang paling mirip (cosine similarity)
-3. Gunakan bagian tersebut sebagai konteks untuk menjawab
+### 1. Ceritakan langsung ke bot (cara termudah)
 
-Ini berarti bot **tidak hafal semua isi dokumen** — tapi bisa menemukan informasi spesifik dengan sangat akurat.
+Cukup ceritakan informasi yang ingin bot ingat:
 
-## Tips Knowledge Base efektif
+```
+Simpan ke knowledge base: Produk kami adalah software akuntansi untuk UKM.
+Harga: Rp 500.000/bln. Fitur utama: invoice, laporan keuangan, integrasi pajak.
+```
 
-- **Dokumen yang terstruktur** (heading, section, tabel) bekerja lebih baik dari dokumen yang semua teks rata
-- **Satu topik per file** lebih mudah di-retrieve daripada satu file berisi banyak topik
-- **Update file** jika konten berubah — hapus yang lama, upload yang baru
-- Untuk **data tabular** (harga, stok, dll), format CSV lebih baik dari PDF
+Bot akan menyimpan ke MEMORY.md atau KNOWLEDGE.md sesuai konteksnya.
+
+### 2. Minta bot tulis langsung ke KNOWLEDGE.md
+
+```
+Tulis ke KNOWLEDGE.md:
+---
+## Produk: SoftAkun Pro
+Harga: Rp 500.000/bln
+Target: UKM Indonesia
+Fitur: Invoice otomatis, laporan laba rugi, integrasi e-Faktur
+---
+```
+
+### 3. Upload file teks via exec (untuk pengguna teknis)
+
+Bot bisa membaca file yang ada di workspace-nya. Kamu bisa meminta bot untuk membaca file tertentu:
+
+```
+baca file yang ada di knowledge/ dan ringkaskan isinya
+```
+
+## Format yang optimal
+
+Bot lebih efektif dengan knowledge yang terstruktur:
+
+```markdown
+## Nama Produk / Topik
+Deskripsi singkat.
+
+### Spesifikasi
+- Poin 1
+- Poin 2
+
+### FAQ
+**Pertanyaan:** ...
+**Jawaban:** ...
+```
+
+## Batasan
+
+| Parameter | Nilai |
+|-----------|-------|
+| Total workspace | 5 GB (Basic), 10 GB (Pro), 25 GB (Ultra) |
+| Format teks | Plain text, Markdown |
+| Kapasitas | Tergantung context window model yang dipilih |
 
 <Callout type="warning">
- **Jangan upload dokumen sensitif** (password, data pribadi customer, dll) kecuali kamu percaya pada keamanan sistem. Semua file dienkripsi di rest, tapi bot bisa membaca isinya saat dipanggil.
+  Bot membaca KNOWLEDGE.md di awal setiap sesi. Jika file terlalu besar (>30KB), bot mungkin menerima pesan "context truncated". Gunakan model dengan context window besar seperti `gemini-2.5-flash` (1M token) atau `deepseek-v4-flash` (1M token).
 </Callout>
+
+## Tips
+
+- **Ringkas dan terstruktur** — gunakan heading dan bullet points
+- **Perbarui secara berkala** — minta bot update knowledge saat ada perubahan info
+- Untuk data yang sering berubah (harga, stok), pertimbangkan web search real-time daripada knowledge statis
