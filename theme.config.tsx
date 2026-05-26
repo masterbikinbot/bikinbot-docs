@@ -67,6 +67,8 @@ const config: DocsThemeConfig = {
   },
   head: (
     <>
+      {/* Force dark mode always — runs before render to prevent flash */}
+      <script dangerouslySetInnerHTML={{ __html: `(function(){try{localStorage.setItem('theme','dark');var h=document.documentElement;h.classList.add('dark');h.classList.remove('light');h.style.colorScheme='dark';}catch(e){}})();` }} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="description" content="Dokumentasi lengkap BikinBot.ai — Platform AI Agent Telegram terbaik di Indonesia." />
       <link rel="icon" type="image/svg+xml" href="/logo.svg" />
@@ -107,7 +109,7 @@ const config: DocsThemeConfig = {
     prev: true,
     next: true,
   },
-  darkMode: true,
+  darkMode: false,
   primaryHue: 262,
   primarySaturation: 83,
 }
