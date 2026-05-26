@@ -22,22 +22,53 @@ BikinBot berbeda dari chatbot biasa karena AI Agent kamu bisa:
 - **Membuat** gambar, video, dan musik dari teks
 - **Terjadwal** mengirim reminder atau laporan otomatis
 
-## Cara kerja
+## Arsitektur Platform
+
+### Alur pesan
 
 ```
-Kamu (Telegram)
-    |
-    v
-OpenClaw Gateway (per-bot, isolated)
-    |
-    v
-BikinBot.ai Platform (Fastify API)
-    |
-    v
-OpenRouter → GPT-5 / Claude / Gemini / dll
+ Kamu
+  │  (chat di Telegram)
+  ▼
+ Telegram Bot API
+  │  (webhook / long-polling)
+  ▼
+ OpenClaw  ──────────────────────────────────────────────────────┐
+ (proses per-bot, isolated)                                      │
+  │                                                              │
+  │  kirim pesan + konteks                                       │ sync model,
+  ▼                                                              │ billing, settings
+ OpenRouter                                                      │
+  │  route ke model pilihan user                                 ▼
+  ├── GPT-5 / GPT-5.1 (OpenAI)               BikinBot.ai API  (Fastify)
+  ├── Claude 4.5 / Opus 4.5 (Anthropic)               │
+  ├── Gemini 3.1 / 2.5 (Google)                        │
+  ├── Grok 4 (xAI)                                     ▼
+  ├── DeepSeek V4 / R1                            Supabase
+  └── 31 model lainnya...                   (database + auth)
 ```
 
-Setiap user mendapat **satu bot terpisah** yang berjalan di server dedicated dengan isolasi penuh — bukan shared resource.
+### Komponen
+
+| Komponen | Teknologi | Fungsi |
+|----------|-----------|--------|
+| **Dashboard** | Next.js + React | Konfigurasi bot, billing, settings |
+| **API** | Fastify (Node.js) | Backend platform — auth, billing, bot management |
+| **OpenClaw** | Node.js (per-bot process) | Runtime AI agent Telegram — per bot, isolated |
+| **Database** | Supabase (PostgreSQL) | User, bot config, kredit, audit log |
+| **AI Router** | OpenRouter | Proxy ke 36+ model AI dari berbagai provider |
+| **Infrastruktur** | PM2 + Caddy + Ubuntu | Process management, HTTPS, server |
+
+### Isolasi per-bot
+
+Setiap user mendapat **satu proses OpenClaw terpisah** yang berjalan secara independen:
+- Memory, context, dan file tidak bercampur antar user
+- Crash satu bot tidak mempengaruhi bot lain
+- Model AI dipilih per-bot, bukan shared pool
+
+### Model selection (sejak v3.6)
+
+Model dipilih **satu kali** oleh user — via Dashboard atau perintah chat ke bot. OpenClaw menggunakan model tersebut untuk **semua pesan** di bot itu. Tidak ada routing otomatis per pesan.
 
 ## Fitur utama
 
