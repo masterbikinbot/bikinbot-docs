@@ -31,7 +31,6 @@ Bot akan otomatis menyimpan:
 ## Memory Tools
 
 Bot punya tools khusus untuk mengelola memory:
-
 | Tool | Fungsi | Contoh perintah |
 |------|--------|-----------------|
 | `memory_store` | Simpan fakta penting | "Simpan: nama client = PT Maju Jaya" |
@@ -40,15 +39,14 @@ Bot punya tools khusus untuk mengelola memory:
 | `memory_forget` | Hapus entry yang outdated | "Hapus info tentang client lama" |
 
 <Callout type="info">
-  **Bot juga proaktif** — ketika kamu menyebutkan sesuatu penting, bot akan menyimpannya ke memory tanpa kamu harus minta.
+ **Bot juga proaktif** — ketika kamu menyebutkan sesuatu penting, bot akan menyimpannya ke memory tanpa kamu harus minta.
 </Callout>
 
 ## Memory vs Konteks Sesi
-
 | Aspek | Memory (MEMORY.md) | Konteks Sesi |
 |-------|-------------------|--------------|
-| Bertahan setelah `/new` | ✅ Ya | ❌ Tidak |
-| Bertahan setelah restart | ✅ Ya | ❌ Tidak |
+| Bertahan setelah `/new` | Ya | Tidak |
+| Bertahan setelah restart | Ya | Tidak |
 | Diisi oleh | Bot otomatis | Riwayat chat |
 | Kapasitas | Tidak terbatas | Terbatas oleh context window model |
 
@@ -64,7 +62,7 @@ Untuk menghapus semua memory bot:
 2. Atau minta langsung via chat: "hapus semua memory kamu"
 
 <Callout type="warning">
-  **Reset Memory bersifat permanen.** Backup informasi penting sebelum melakukan reset.
+ **Reset Memory bersifat permanen.** Backup informasi penting sebelum melakukan reset.
 </Callout>
 
 ## Tips penggunaan memory

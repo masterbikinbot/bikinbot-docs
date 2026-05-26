@@ -37,7 +37,7 @@ Simpan token ini, jangan bagikan ke siapapun.
 </Steps>
 
 <Callout type="warning">
-  **Jaga token tetap rahasia.** Token adalah kunci akses penuh ke bot kamu. Jika bocor, segera ganti via `/token` di @BotFather atau menu Settings → Ganti Token di dashboard.
+ **Jaga token tetap rahasia.** Token adalah kunci akses penuh ke bot kamu. Jika bocor, segera ganti via `/token` di @BotFather atau menu Settings → Ganti Token di dashboard.
 </Callout>
 
 ## Konfigurasi Owner ID
@@ -58,16 +58,15 @@ Simpan token ini, jangan bagikan ke siapapun.
 4. Klik **Simpan**
 
 <Callout type="info">
-  Setelah Owner ID diset, bot hanya menerima pesan dari kamu. User lain di luar whitelist tidak bisa berinteraksi dengan bot.
+ Setelah Owner ID diset, bot hanya menerima pesan dari kamu. User lain di luar whitelist tidak bisa berinteraksi dengan bot.
 </Callout>
 
 ## Webhook vs Long-poll
 
 BikinBot menggunakan **webhook** untuk delivery pesan yang lebih cepat:
-
 | Mode | Kecepatan | Cara kerja |
 |------|-----------|------------|
-| **Webhook** ✅ | < 1 detik | Telegram langsung push pesan ke server BikinBot |
+| **Webhook** | < 1 detik | Telegram langsung push pesan ke server BikinBot |
 | Long-poll | 1–3 detik | Bot terus-menerus tanya Telegram "ada pesan baru?" |
 
 Webhook aktif otomatis saat bot di-setup. Kamu tidak perlu konfigurasi manual.
@@ -95,7 +94,7 @@ Jika token bocor atau kamu ingin ganti:
 5. Bot akan restart otomatis (~30 detik offline)
 
 <Callout type="warning">
-  Jangan restart bot secara manual setelah ganti token — sistem akan melakukannya otomatis.
+ Jangan restart bot secara manual setelah ganti token — sistem akan melakukannya otomatis.
 </Callout>
 
 ## Command Telegram

@@ -7,7 +7,11 @@ import { Callout } from 'nextra/components'
 
 # Generate Video
 
-Bot kamu bisa membuat **video pendek** langsung dari chat Telegram. Prosesnya asinkron — kamu minta, bot request ke provider, video dikirim otomatis ke chat saat selesai (30 detik – 5 menit).
+Bot kamu bisa membuat **video pendek** langsung dari chat Telegram via tool `video_generate` native OpenClaw. Prosesnya asinkron — kamu minta, bot request ke provider, video dikirim otomatis ke chat saat selesai (30 detik – 5 menit).
+
+<Callout type="warning">
+  **Cara minta yang benar:** Jika bot membalas "generate video belum tersedia", coba formulasi yang berbeda atau gunakan model dengan tool calling yang kuat (disarankan `kimi-k2.6` atau `gemini-2.5-flash`).
+</Callout>
 
 ## Cara menggunakan
 
@@ -24,14 +28,14 @@ video cinematic sunset di pantai, slow motion, 8 detik
 ```
 
 Setelah request, bot akan langsung memberi tahu:
-> 🎬 Video sedang dibuat, akan dikirim otomatis dalam 30 detik – 5 menit.
+
+> Video sedang dibuat, akan dikirim otomatis dalam 30 detik – 5 menit.
 
 <Callout type="info">
-  **Tidak perlu menunggu** — kamu bisa lanjut chat, bot akan kirim video begitu selesai.
+ **Tidak perlu menunggu** — kamu bisa lanjut chat, bot akan kirim video begitu selesai.
 </Callout>
 
 ## Spesifikasi video
-
 | Parameter | Nilai |
 |-----------|-------|
 | Durasi | 3–10 detik |
@@ -59,5 +63,5 @@ batalkan generate video
 ```
 
 <Callout type="warning">
-  Video yang sedang diproses **tidak bisa di-edit** setelah dikirim. Periksa deskripsimu sebelum konfirmasi.
+ Video yang sedang diproses **tidak bisa di-edit** setelah dikirim. Periksa deskripsimu sebelum konfirmasi.
 </Callout>

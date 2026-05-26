@@ -1,5 +1,8 @@
 {
-  "index": "Overview",
+  "index": {
+    "title": "Overview",
+    "display": "hidden"
+  },
   "credits": "Kredit & Billing",
   "referral": "Program Referral",
   "settings": "Settings",

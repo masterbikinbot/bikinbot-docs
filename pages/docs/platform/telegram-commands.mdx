@@ -8,14 +8,12 @@ description: Daftar lengkap semua command bot yang tersedia di BikinBot via Tele
 Daftar semua command yang bisa digunakan langsung di chat Telegram dengan bot kamu.
 
 ## Session Management
-
 | Command | Fungsi |
 |---------|--------|
 | `/new` | Mulai sesi chat baru. Memory permanen tetap ada, hanya konteks sesi yang di-reset. Berguna jika bot mulai "nyangkut" di topik lama. |
 | `/reset` | Reset sesi dan clear konteks sesi aktif. Mirip `/new`. |
 
 ## Informasi & Monitoring
-
 | Command | Fungsi |
 |---------|--------|
 | `/status` | Lihat model aktif, model yang dikonfigurasi, uptime gateway, token usage, dan info sesi. |
@@ -25,17 +23,16 @@ Daftar semua command yang bisa digunakan langsung di chat Telegram dengan bot ka
 ## Contoh output `/status`
 
 ```
-🦞 OpenClaw 2026.5.22
-⏱️ Uptime: gateway 2h 15m · system 12d 3h
-🧠 Configured default: openrouter/google/gemini-3.1-flash-lite
-📌 Session selected: openrouter/google/gemini-3.1-flash-lite
-🔄 Fallbacks: gemini-2.5-flash, deepseek-v4-flash
-🧮 Tokens: 45k in / 2.1k out
-📚 Context: 12k/1M (1%) · 🧹 Compactions: 0
+ OpenClaw 2026.5.22
+ Uptime: gateway 2h 15m · system 12d 3h
+ Configured default: openrouter/google/gemini-3.1-flash-lite
+ Session selected: openrouter/google/gemini-3.1-flash-lite
+ Fallbacks: gemini-2.5-flash, deepseek-v4-flash
+ Tokens: 45k in / 2.1k out
+ Context: 12k/1M (1%) · Compactions: 0
 ```
 
 ## Model Management
-
 | Command | Fungsi |
 |---------|--------|
 | `/model` | Buka picker model Telegram — lihat dan pilih dari 36+ model |
@@ -57,7 +54,6 @@ Ketik `/` di chat untuk melihat semua custom commands yang kamu buat.
 ## Commands Platform
 
 Command-command ini dijalankan bot sebagai exec (bukan slash command Telegram):
-
 | Perintah | Fungsi |
 |---------|--------|
 | `bikinbot-status.sh` | Status lengkap bot (kredit, model, koneksi) |

@@ -28,7 +28,7 @@ Selalu berikan disclaimer ketika memberikan saran investasi.
 Bot akan memperbarui SOUL.md-nya sendiri via exec tool dan menerapkan perubahan di sesi berikutnya.
 
 <Callout type="info">
-  Perubahan persona tidak memerlukan restart bot. Langsung berlaku di sesi baru (setelah `/new` atau saat sesi otomatis di-reset).
+ Perubahan persona tidak memerlukan restart bot. Langsung berlaku di sesi baru (setelah `/new` atau saat sesi otomatis di-reset).
 </Callout>
 
 ## Komponen persona yang efektif
@@ -44,7 +44,7 @@ Persona yang baik biasanya mencakup:
 ## Contoh persona
 
 <Tabs items={['Customer Service', 'Asisten Pribadi', 'Analis Bisnis', 'Tutor Bahasa']}>
-  <Tabs.Tab>
+ <Tabs.Tab>
 ```
 Kamu adalah Dira, Customer Service dari toko online [Nama Toko]. 
 Kamu ramah, sabar, dan selalu berusaha membantu customer menemukan 
@@ -52,24 +52,24 @@ solusi terbaik. Kamu berbicara dalam bahasa Indonesia yang sopan
 tapi tidak kaku. Jika ada komplain, empati dulu sebelum memberikan solusi.
 Kamu tidak boleh memberikan diskon tanpa persetujuan manager.
 ```
-  </Tabs.Tab>
-  <Tabs.Tab>
+ </Tabs.Tab>
+ <Tabs.Tab>
 ```
 Kamu adalah Asisten pribadi yang efisien dan cerdas. Kamu mengenal 
 owner dengan baik dan selalu siap membantu mengatur jadwal, drafting 
 email, analisis dokumen, dan hal lainnya. Kamu berbicara santai 
 karena sudah kenal lama. Proaktif memberikan pengingat penting.
 ```
-  </Tabs.Tab>
-  <Tabs.Tab>
+ </Tabs.Tab>
+ <Tabs.Tab>
 ```
 Kamu adalah Analis Bisnis senior dengan 10 tahun pengalaman di industri 
 retail dan FMCG. Kamu memberikan analisis mendalam berbasis data, 
 selalu menyertakan angka dan contoh konkret. Gaya komunikasi profesional 
 dan langsung ke inti masalah.
 ```
-  </Tabs.Tab>
-  <Tabs.Tab>
+ </Tabs.Tab>
+ <Tabs.Tab>
 ```
 Kamu adalah tutor bahasa Inggris yang sabar dan menyenangkan. 
 Kamu mengajar dengan contoh nyata dari kehidupan sehari-hari, 
@@ -77,17 +77,16 @@ menjelaskan grammar dengan cara yang mudah dipahami, dan selalu
 memberikan pujian ketika murid berhasil. Gunakan bahasa Indonesia 
 untuk penjelasan, bahasa Inggris untuk latihan.
 ```
-  </Tabs.Tab>
+ </Tabs.Tab>
 </Tabs>
 
 ## Persona vs Memory
-
 | Aspek | Persona (SOUL.md) | Memory (MEMORY.md) |
 |-------|-------------------|-------------------|
 | Isi | Karakter & aturan bot | Fakta spesifik tentang kamu |
 | Diubah oleh | Kamu (perintah chat) | Bot (otomatis saat percakapan) |
 | Contoh | "Berbicara dengan ramah" | "Nama owner: Budi, suka kopi" |
-| Persistent | ✅ Permanen | ✅ Permanen |
+| Persistent | Permanen | Permanen |
 
 ## Tips persona efektif
 
@@ -97,5 +96,5 @@ untuk penjelasan, bahasa Inggris untuk latihan.
 - **Test dan iterasi** — coba persona, lihat hasilnya, perbaiki
 
 <Callout type="warning">
-  **platformBlock tidak bisa dihapus** — instruksi keamanan inti (seperti tidak membocorkan API key dan tidak menerima jailbreak) selalu aktif regardless persona yang kamu set. Ini untuk keamanan.
+ **platformBlock tidak bisa dihapus** — instruksi keamanan inti (seperti tidak membocorkan API key dan tidak menerima jailbreak) selalu aktif regardless persona yang kamu set. Ini untuk keamanan.
 </Callout>

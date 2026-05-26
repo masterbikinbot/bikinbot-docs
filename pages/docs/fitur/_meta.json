@@ -1,5 +1,8 @@
 {
-  "index": "Overview",
+  "index": {
+    "title": "Overview",
+    "display": "hidden"
+  },
   "memory": "Memory & Konteks",
   "knowledge": "Knowledge Base",
   "cron": "Jadwal Otomatis",

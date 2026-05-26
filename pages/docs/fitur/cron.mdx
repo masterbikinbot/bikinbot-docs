@@ -28,13 +28,12 @@ jadwalkan: tanggal 1 setiap bulan jam 10 pagi, kirim laporan pengeluaran
 Bot akan konfirmasi dan membuat jadwal otomatis.
 
 <Callout type="info">
-  Jadwal berjalan di timezone **Asia/Jakarta (WIB)** secara default. Sebutkan timezone lain jika perlu.
+ Jadwal berjalan di timezone **Asia/Jakarta (WIB)** secara default. Sebutkan timezone lain jika perlu.
 </Callout>
 
 ## Format jadwal (untuk pengguna teknis)
 
 Jadwal menggunakan format **cron expression** (`menit jam hari bulan hari-minggu`):
-
 | Ekspresi | Arti |
 |----------|------|
 | `0 8 * * *` | Setiap hari jam 08:00 |
@@ -80,7 +79,6 @@ hapus jadwal reminder harian
 Atau via dashboard BikinBot → tab **Jadwal**.
 
 ## Batas jadwal
-
 | Tier | Jadwal maksimum |
 |------|-----------------|
 | Basic | 15 jadwal |
@@ -88,5 +86,5 @@ Atau via dashboard BikinBot → tab **Jadwal**.
 | Ultra | 15 jadwal |
 
 <Callout type="warning">
-  **Bot harus dalam status Running** untuk jadwal berjalan. Jika bot di-stop atau kredit habis, jadwal akan ter-skip sampai bot aktif kembali.
+ **Bot harus dalam status Running** untuk jadwal berjalan. Jika bot di-stop atau kredit habis, jadwal akan ter-skip sampai bot aktif kembali.
 </Callout>

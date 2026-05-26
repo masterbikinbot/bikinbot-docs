@@ -1,28 +1,28 @@
 {
-  "getting-started": {
-    "title": "🚀 Mulai",
+  "sep-mulai": {
+    "title": "Mulai",
     "type": "separator"
   },
-  "mulai-cepat": "Quick Start (5 menit)",
+  "mulai-cepat": "Quick Start",
   "apa-itu-bikinbot": "Apa itu BikinBot?",
-  "--": {
+  "sep-setup": {
     "type": "separator",
-    "title": "⚙️ Setup Bot"
+    "title": "Setup Bot"
   },
   "bot": "Bot",
-  "---": {
+  "sep-fitur": {
     "type": "separator",
-    "title": "✨ Fitur"
+    "title": "Fitur"
   },
   "fitur": "Fitur",
-  "----": {
+  "sep-platform": {
     "type": "separator",
-    "title": "💡 Platform"
+    "title": "Platform"
   },
   "platform": "Platform",
-  "-----": {
+  "sep-bantuan": {
     "type": "separator",
-    "title": "🛠 Bantuan"
+    "title": "Bantuan"
   },
   "troubleshoot": "Troubleshoot",
   "changelog": "Changelog"
